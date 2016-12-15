@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="400px">
+        android:layout_marginTop="900px">
 
         <TextView
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             android:layout_marginBottom="5px"
             android:textSize="7pt"
             android:layout_below="@+id/gender_text"
-            android:id="@+id/male"
+            android:id="@+id/male_button"
             android:text="@string/gender_female"
             android:onClick="passData"/>
 
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:textSize="7pt"
             android:layout_below="@+id/male"
-            android:id="@+id/female"
+            android:id="@+id/female_button"
             android:text="@string/gender_male"
             android:onClick="passData"/>
 
