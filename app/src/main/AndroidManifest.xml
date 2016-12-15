@@ -15,13 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity android:name=".RegistrationInterests"></activity>
         <activity android:name=".RegistrationInput"></activity>
-=======
-        <activity android:name=".RegistrationInterests">
-        </activity>
->>>>>>> origin/feature-registration
     </application>
 
 </manifest>
