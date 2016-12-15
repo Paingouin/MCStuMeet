@@ -19,6 +19,7 @@ public class RegistrationInterests extends AppCompatActivity {
         setContentView(R.layout.activity_registration_interests);
     }
 
+    // If button is clicked...
     public void passData(View view){
         Button girls = (Button) findViewById(R.id.interests_girl);
         Intent intent = new Intent(this, RegistrationInput.class);
@@ -30,5 +31,6 @@ public class RegistrationInterests extends AppCompatActivity {
             intent.putExtra("interests", "guys");
         }
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }

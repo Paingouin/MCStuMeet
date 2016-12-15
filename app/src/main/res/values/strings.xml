@@ -7,4 +7,7 @@
     <string name="interests_girl">Girls?</string>
     <string name="interests_guy">Guys?</string>
     <string name="create_account">Create account</string>
+    <string name="or_text">– or –</string>
+    <string name="SigninStuMeet">Sign in to StuMeet</string>
+    <string name="SigninFB">Sign in to Facebook</string>
 </resources>

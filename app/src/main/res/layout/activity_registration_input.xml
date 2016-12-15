@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_registration_input"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,54 +28,83 @@
             android:layout_marginBottom="65px"
             android:text="Sign in"/>
 
-        <EditText
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/usernameWrapper"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/registration_username"
-            android:inputType="text"
-            style="@style/textStyleSignin"
-            android:hint="Username" />
+            android:layout_height="wrap_content">
+            <EditText
+                style="@style/textStyleSignin"
+                android:id="@+id/registration_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="Username"/>
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/emailWrapper"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/textStyleSignin"
-            android:id="@+id/registration_email"
-            android:inputType="text"
-            android:hint="Email" />
+            android:layout_height="wrap_content">
+            <EditText
+                style="@style/textStyleSignin"
+                android:id="@+id/registration_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Email"/>
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/passwordWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/textStyleSignin"
-            android:fontFamily="sans-serif"
-            android:id="@+id/registration_password"
-            android:inputType="textPassword"
-            android:hint="Password"/>
+            app:passwordToggleEnabled="true">
+            <EditText
+                style="@style/textStyleSignin"
+                android:id="@+id/registration_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:fontFamily="sans-serif"
+                android:hint="Password"/>
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/passwordValidationWrapper"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/textStyleSignin"
-            android:fontFamily="sans-serif"
-            android:id="@+id/registration_passwordValidation"
-            android:inputType="textPassword"
-            android:hint="Reenter Password"/>
+            app:passwordToggleEnabled="true">
+            <EditText
+                style="@style/textStyleSignin"
+                app:passwordToggleEnabled="true"
+                android:id="@+id/registration_passwordValidation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:fontFamily="sans-serif"
+                android:hint="Reenter password"/>
+        </android.support.design.widget.TextInputLayout>
 
-        <EditText
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/birthdayWrapper"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/textStyleSignin"
-            android:id="@+id/registration_birthday"
-            android:inputType="numberSigned"
-            android:hint="Birthday"/>
+            android:layout_height="wrap_content">
+            <EditText
+                style="@style/textStyleSignin"
+                android:id="@+id/registration_birthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="datetime"
+                android:hint="Birthday"/>
+        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="230px"
             style="@style/buttonSize"
-            android:background="@drawable/roundedbutton"
+            android:background="@drawable/rounded_action_button"
+            android:textColor="#FFFFFF"
             android:id="@+id/registration_button"
             android:text="@string/create_account"
             android:onClick="passData"/>
