@@ -12,6 +12,42 @@
     tools:context="com.example.cogo.mcstumeet.RegistrationInterests">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="400px">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/interests_text"
+            android:textSize="10pt"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:layout_marginBottom="30px"
+            android:text="@string/interests_text"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5px"
+            android:textSize="7pt"
+            android:layout_below="@+id/interests_text"
+            android:id="@+id/interests_female"
+            android:text="@string/interests_girl"
+            android:onClick="passData"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5px"
+            android:textSize="7pt"
+            android:layout_below="@+id/interests_text"
+            android:id="@+id/interests_male"
+            android:text="@string/interests_guy"
+            android:onClick="passData"/>
+
+    </LinearLayout>
 
 </RelativeLayout>
