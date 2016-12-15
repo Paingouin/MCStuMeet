@@ -16,6 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:paddingLeft="90px"
+        android:paddingRight="90px"
         android:layout_marginTop="900px">
 
         <TextView
@@ -24,7 +26,7 @@
             android:id="@+id/interests_text"
             style="@style/textStyleRegistration"
             android:textAlignment="center"
-            android:layout_marginBottom="30px"
+            android:layout_marginBottom="80px"
             android:text="@string/interests_text"/>
 
         <Button

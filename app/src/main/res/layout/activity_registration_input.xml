@@ -14,6 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:paddingLeft="90px"
+        android:paddingRight="90px"
         android:layout_marginTop="260px">
 
         <TextView
@@ -36,7 +38,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/textStyleRegistration"
+            style="@style/textStyleSignin"
             android:id="@+id/registration_email"
             android:inputType="text"
             android:hint="Email" />
@@ -70,7 +72,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100px"
+            android:layout_marginTop="230px"
             style="@style/buttonSize"
             android:background="@drawable/roundedbutton"
             android:id="@+id/registration_button"
