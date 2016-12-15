@@ -50,8 +50,17 @@
             android:layout_height="wrap_content"
             android:id="@+id/registration_birthday"
             android:inputType="numberSigned"
-            android:hint="Birthday"
-            />
+            android:hint="Birthday"></EditText>
+
+        <DatePicker
+            android:id="@+id/datePicker1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner" />
+
 
         <Button
             android:layout_width="match_parent"
