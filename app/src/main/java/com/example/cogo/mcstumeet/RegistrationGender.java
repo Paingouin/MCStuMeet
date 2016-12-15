@@ -25,5 +25,4 @@ public class RegistrationGender extends AppCompatActivity {
         startActivity(intent);
     }
 
-
 }

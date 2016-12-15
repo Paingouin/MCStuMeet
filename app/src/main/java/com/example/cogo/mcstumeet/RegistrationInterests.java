@@ -5,6 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+<<<<<<< HEAD
+=======
+import android.content.Intent;
+
+>>>>>>> origin/feature-registration
 
 public class RegistrationInterests extends AppCompatActivity {
     String data_gender;
@@ -18,6 +23,7 @@ public class RegistrationInterests extends AppCompatActivity {
         setContentView(R.layout.activity_registration_interests);
     }
 
+<<<<<<< HEAD
    // public void passData(View view){
         //Button girls = (Button) findViewById(R.id.interests_girl);
         //Intent intent = new Intent(this, RegistrationInput.class);
@@ -30,4 +36,16 @@ public class RegistrationInterests extends AppCompatActivity {
         //}
         //startActivity(intent);
     //}
+=======
+    public void passData(View view){
+        Button female = (Button) findViewById(R.id.interests_female);
+        Intent intent = new Intent(this, RegistrationInput.class);
+        if(view == female){
+            intent.putExtra("interests", "female");
+        } else {
+            intent.putExtra("interests", "male");
+        }
+        startActivity(intent);
+    }
+>>>>>>> origin/feature-registration
 }
