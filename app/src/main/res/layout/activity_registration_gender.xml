@@ -14,32 +14,35 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:paddingLeft="90px"
+        android:paddingRight="90px"
         android:layout_marginTop="900px">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/gender_text"
-            android:textSize="10pt"
+            style="@style/textStyleRegistration"
             android:textAlignment="center"
-            android:textColor="#000000"
-            android:layout_marginBottom="30px"
+            android:layout_marginBottom="80px"
             android:text="@string/gender_text"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5px"
-            android:textSize="7pt"
+            android:background="@drawable/roundedbutton"
+            android:layout_marginBottom="45px"
+            style="@style/buttonSize"
             android:layout_below="@+id/gender_text"
             android:id="@+id/male_button"
             android:text="@string/gender_female"
-            android:onClick="passData"/>
+            android:onClick="passData" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="7pt"
+            android:background="@drawable/roundedbutton"
+            style="@style/buttonSize"
             android:layout_below="@+id/male"
             android:id="@+id/female_button"
             android:text="@string/gender_male"
