@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
             android:layout_marginBottom="45px"
-            style="@style/buttonSize"
+            style="@style/button Size"
             android:layout_below="@+id/interests_text"
             android:id="@+id/interests_girl"
             android:text="@string/interests_girl"
