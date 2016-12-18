@@ -16,6 +16,7 @@ public class RegistrationInterests extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         String data = extras.getString("gender");
         data_gender = data;
+        System.out.println("data_gender: " + data_gender);
         setContentView(R.layout.activity_registration_interests);
     }
 

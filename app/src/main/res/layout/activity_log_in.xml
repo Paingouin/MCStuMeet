@@ -36,22 +36,8 @@
             android:textStyle="bold"
             android:textSize="16pt"
             android:layout_marginBottom="10dp"
-            android:text="@string/signin_text"
-            android:id="@+id/textView" />
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/usernameWrapper"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                style="@style/textStyleSignin"
-                android:id="@+id/registration_username"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:hint="@string/username"/>
-        </android.support.design.widget.TextInputLayout>
+            android:text="@string/login_text"
+            android:id="@+id/textView"/>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/emailWrapper"
@@ -63,14 +49,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="@string/email"/>
+                android:hint="@string/username"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/passwordWrapper"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true">
+            android:layout_height="wrap_content">
             <EditText
                 style="@style/textStyleSignin"
                 android:id="@+id/registration_password"
@@ -81,34 +66,6 @@
                 android:hint="@string/password"/>
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/passwordValidationWrapper"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                style="@style/textStyleSignin"
-                app:passwordToggleEnabled="true"
-                android:id="@+id/registration_passwordValidation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:fontFamily="sans-serif"
-                android:hint="@string/reenter_password"/>
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/birthdayWrapper"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                style="@style/textStyleSignin"
-                android:id="@+id/registration_birthday"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="datetime"
-                android:hint="@string/birthday"/>
-        </android.support.design.widget.TextInputLayout>
-
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -116,10 +73,19 @@
             style="@style/buttonSize"
             android:background="@drawable/rounded_action_button"
             android:textColor="#FFFFFF"
-            android:id="@+id/registration_button"
-            android:text="@string/create_account"
+            android:id="@+id/login_button"
+            android:text="@string/login"
             android:onClick="passData"/>
+        
+        <Button
+            android:layout_marginTop="25dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/forgot_pwd_button"
+            android:text="@string/forgot_pwd"
+            android:onClick="forgotPwd"/>
 
-        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">MCStuMeet</string>
-    
+
     <string name="gender_female">Female?</string>
     <string name="gender_male">Male?</string>
     <string name="gender_text">Hey! Are you...</string>
@@ -9,14 +9,18 @@
     <string name="interests_girl">Girls?</string>
     <string name="interests_guy">Guys?</string>
     <string name="or_text">– or –</string>
-    <string name="SigninStuMeet">Sign in to StuMeet</string>
-    <string name="SigninFB">Sign in to Facebook</string>
+    <string name="loginStuMeet">Log in to StuMeet</string>
+    <string name="loginFB">Log in with Facebook</string>
 
-    <string name="Signin">Sign in</string>
+    <string name="signin_text">Sign in</string>
     <string name="username">Username</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="reenter_password">Reenter password</string>
     <string name="birthday">Birthday</string>
     <string name="create_account">Create account</string>
+
+    <string name="login_text">Log in</string>
+    <string name="login">Log in</string>
+    <string name="forgot_pwd">Forgot password?</string>
 </resources>

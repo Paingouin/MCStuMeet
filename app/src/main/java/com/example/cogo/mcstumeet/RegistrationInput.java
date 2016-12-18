@@ -1,5 +1,7 @@
 package com.example.cogo.mcstumeet;
 
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -9,11 +11,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class RegistrationInput extends AppCompatActivity {
-
+    Toast toast;
     /*We have to check, whether the username is still available
     & check, whether the email is an university email account
-    & check, whether the first pwd and the second pwd match each other & encrypt
-    & check, whether the birthday is a valid date*/
+    & encrypt pwd
+    & check, whether the birthday is a valid date
+    & check, whether the inputs are filled or not -- mit isEmpty()*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +24,6 @@ public class RegistrationInput extends AppCompatActivity {
         setContentView(R.layout.activity_registration_input);
     }
 
-    // If button is clicked...
     public void passData(View view){
         EditText username = (EditText) findViewById(R.id.registration_username);
         EditText mail = (EditText) findViewById(R.id.registration_email);
@@ -37,23 +39,30 @@ public class RegistrationInput extends AppCompatActivity {
 
         String universityEmail = "student.reutlingen-university.de";
         String splittedEmail = "";
-        String[] forSplitEmail = email.split("@");
-        for (int i=0; i<forSplitEmail.length; i++) {
-            System.out.println("splited emails: " + forSplitEmail[i]);
-            splittedEmail = forSplitEmail[1];
-        }
 
-        if(pwd.equals(pwdValid)){
-            if(universityEmail.equals(splittedEmail)){
-                //Insert username and pwd in db
-                System.out.println("Email stimmt überein");
+        if(email.matches("(.*)@(.*)")){
+            String[] forSplitEmail = email.split("@");
+            for (int i=0; i<forSplitEmail.length; i++) {
+                System.out.println("splited emails: " + forSplitEmail[i]);
+                splittedEmail = forSplitEmail[1];
             }
-            else {
-                Toast.makeText(this, "Email is unvalid! Please use your university email", Toast.LENGTH_SHORT).show();
+            if(pwd.equals(pwdValid)){
+                if(universityEmail.equals(splittedEmail)){
+                    //Insert username and pwd in db
+                }
+                else {
+                    toast.makeText(this, "Email is unvalid! Please use your university email", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
+                    toast.show();
+                }
+            } else {
+                toast.makeText(this, "No match between your passwords!", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
+                toast.show();
             }
+
         } else {
-            //Will customize the toasts later...
-            Toast toast = Toast.makeText(this, "No match between your passwords!", Toast.LENGTH_SHORT);
+            toast.makeText(this, "Unvalid email adress!", Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
             toast.show();
         }
