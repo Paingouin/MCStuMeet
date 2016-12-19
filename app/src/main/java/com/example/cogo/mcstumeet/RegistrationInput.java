@@ -2,19 +2,19 @@ package com.example.cogo.mcstumeet;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class RegistrationInput extends AppCompatActivity {
-    Toast toast;
-    Encryption encryption = new Encryption();
-    String encryptedPwd = "";
+    private Toast toast;
+    protected Encryption encryption = new Encryption();
+    protected String encryptedPwd = "";
+    protected String universityEmail = "student.reutlingen-university.de";
+    protected String splittedEmail = "";
 
     /* we have to check, whether the email is an university email account
-    & check, whether the birthday is a valid date
-    & check, whether the inputs are filled or not -- mit isEmpty()*/
+    & check, whether the birthday is a valid date*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,53 +23,49 @@ public class RegistrationInput extends AppCompatActivity {
     }
 
     public void passData(View view){
-        EditText username = (EditText) findViewById(R.id.registration_username);
+        EditText name = (EditText) findViewById(R.id.registration_username);
         EditText mail = (EditText) findViewById(R.id.registration_email);
         EditText password = (EditText) findViewById(R.id.registration_password);
         EditText passwordValid = (EditText) findViewById(R.id.registration_passwordValidation);
+        EditText bday = (EditText) findViewById(R.id.registration_birthday);
 
-        //Look after username in db whether the username is taken or not
-
+        String username = name.getText().toString();
         String pwd = password.getText().toString();
         String pwdValid = passwordValid.getText().toString();
         String email = mail.getText().toString().toLowerCase();
-        System.out.println(email);
+        String birthday = bday.getText().toString();
 
-        String universityEmail = "student.reutlingen-university.de";
-        String splittedEmail = "";
-
-        if(email.matches("(.*)@(.*)")){
-            String[] forSplitEmail = email.split("@");
-            for (int i=0; i<forSplitEmail.length; i++) {
-                System.out.println("splited emails: " + forSplitEmail[i]);
-                splittedEmail = forSplitEmail[1];
-            }
-            if(pwd.equals(pwdValid)){
-                if(universityEmail.equals(splittedEmail)){
-                    try {
-                        this.encryptedPwd = this.encryption.encrypt(pwd);
-                        //Insert username and encrypted pwd into db
-                        System.out.println("Encrypted pwd: " + this.encryptedPwd);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+        // Checks whether all fields filled out or not -- not working
+        if(!(pwd.isEmpty() || pwdValid.isEmpty() || email.isEmpty() || username.isEmpty() || birthday.isEmpty())){
+            // Checks whether email matches with the uni email address
+            if(email.matches("(.*)@(.*)")){
+                String[] forSplitEmail = email.split("@");
+                for (int i=0; i<forSplitEmail.length; i++) {
+                    System.out.println("splitted emails: " + forSplitEmail[i]);
+                    splittedEmail = forSplitEmail[1];
                 }
-                else {
-                    this.toast.makeText(this, "Email is unvalid! Please use your university email", Toast.LENGTH_SHORT);
-                    this.toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
-                    this.toast.show();
+                // Checks whether pwd and "reenter" pwd matches with each other or not
+                if(pwd.equals(pwdValid)){
+                    if(universityEmail.equals(splittedEmail)){
+                        try {
+                            this.encryptedPwd = this.encryption.encrypt(pwd);
+                            //Insert username and encrypted pwd into db
+                            System.out.println("Encrypted pwd: " + this.encryptedPwd);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    else {
+                        this.toast.makeText(this, "Email is unvalid. Please use your university email address!", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    this.toast.makeText(this, "No match between your passwords!", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                this.toast.makeText(this, "No match between your passwords!", Toast.LENGTH_SHORT);
-                this.toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
-                this.toast.show();
+                this.toast.makeText(this, "Unvalid email address!", Toast.LENGTH_SHORT).show();
             }
-
         } else {
-            this.toast.makeText(this, "Unvalid email adress!", Toast.LENGTH_SHORT);
-            this.toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
-            this.toast.show();
+            this.toast.makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
         }
-
     }
 }

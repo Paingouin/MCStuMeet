@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.content.Intent;
 
 public class RegistrationInterests extends AppCompatActivity {
-    String data_gender;
+    protected String data_gender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
