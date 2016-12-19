@@ -1,20 +1,18 @@
 package com.example.cogo.mcstumeet;
 
-import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class RegistrationInput extends AppCompatActivity {
     Toast toast;
-    /*We have to check, whether the username is still available
-    & check, whether the email is an university email account
-    & encrypt pwd
+    Encryption encryption = new Encryption();
+    String encryptedPwd = "";
+
+    /* we have to check, whether the email is an university email account
     & check, whether the birthday is a valid date
     & check, whether the inputs are filled or not -- mit isEmpty()*/
 
@@ -48,23 +46,29 @@ public class RegistrationInput extends AppCompatActivity {
             }
             if(pwd.equals(pwdValid)){
                 if(universityEmail.equals(splittedEmail)){
-                    //Insert username and pwd in db
+                    try {
+                        this.encryptedPwd = this.encryption.encrypt(pwd);
+                        //Insert username and encrypted pwd into db
+                        System.out.println("Encrypted pwd: " + this.encryptedPwd);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
                 else {
-                    toast.makeText(this, "Email is unvalid! Please use your university email", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
-                    toast.show();
+                    this.toast.makeText(this, "Email is unvalid! Please use your university email", Toast.LENGTH_SHORT);
+                    this.toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
+                    this.toast.show();
                 }
             } else {
-                toast.makeText(this, "No match between your passwords!", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
-                toast.show();
+                this.toast.makeText(this, "No match between your passwords!", Toast.LENGTH_SHORT);
+                this.toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
+                this.toast.show();
             }
 
         } else {
-            toast.makeText(this, "Unvalid email adress!", Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
-            toast.show();
+            this.toast.makeText(this, "Unvalid email adress!", Toast.LENGTH_SHORT);
+            this.toast.setGravity(Gravity.CENTER|Gravity.CENTER, 0, 0);
+            this.toast.show();
         }
 
     }

@@ -38,16 +38,6 @@
                 android:textAlignment="center"
                 android:layout_marginBottom="20dp"
                 android:text="@string/interests_text"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button"
-            android:layout_marginBottom="45px"
-            style="@style/buttonSize"
-            android:layout_below="@+id/interests_text"
-            android:id="@+id/interests_girls"
-            android:text="@string/interests_girl"
-            android:onClick="passData"/>
 
             <Button
                 android:layout_width="match_parent"
