@@ -1,4 +1,4 @@
-package com.example.cogo.mcstumeet;
+package com.example.cogo.mcstumeet.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.app.Fragment;
+
+import com.example.cogo.mcstumeet.R;
 
 /**
  * Created by Gamze on 22.12.2016.

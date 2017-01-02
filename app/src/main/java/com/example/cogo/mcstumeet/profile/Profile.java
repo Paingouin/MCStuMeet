@@ -1,8 +1,12 @@
-package com.example.cogo.mcstumeet;
+package com.example.cogo.mcstumeet.profile;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.cogo.mcstumeet.R;
+import com.example.cogo.mcstumeet.fragments.DatesFragment;
+import com.example.cogo.mcstumeet.fragments.SearchUserFragment;
+import com.example.cogo.mcstumeet.fragments.UsersProfileFragment;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
 

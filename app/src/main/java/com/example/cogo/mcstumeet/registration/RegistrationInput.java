@@ -1,10 +1,13 @@
-package com.example.cogo.mcstumeet;
+package com.example.cogo.mcstumeet.registration;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.cogo.mcstumeet.R;
+import com.example.cogo.mcstumeet.security.Encryption;
 
 public class RegistrationInput extends AppCompatActivity {
     private Toast toast;

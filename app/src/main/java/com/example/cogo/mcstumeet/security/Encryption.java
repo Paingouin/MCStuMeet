@@ -1,4 +1,4 @@
-package com.example.cogo.mcstumeet;
+package com.example.cogo.mcstumeet.security;
 
 import android.util.Base64;
 import java.security.Key;

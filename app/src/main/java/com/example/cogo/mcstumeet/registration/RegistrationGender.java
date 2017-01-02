@@ -1,10 +1,13 @@
-package com.example.cogo.mcstumeet;
+package com.example.cogo.mcstumeet.registration;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.cogo.mcstumeet.R;
+import com.example.cogo.mcstumeet.login.LogIn;
 
 public class RegistrationGender extends AppCompatActivity {
 
