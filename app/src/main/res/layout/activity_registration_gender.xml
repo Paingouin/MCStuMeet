@@ -80,15 +80,6 @@
                 android:text="@string/loginStuMeet"
                 android:id="@+id/signinStuMeet_button"
                 android:onClick="singIn"/>
-            <Button
-                style="@style/buttonSize"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/rounded_action_button"
-                android:textColor="#FFFFFF"
-                android:text="@string/loginFB"
-                android:id="@+id/signinFb_button" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
