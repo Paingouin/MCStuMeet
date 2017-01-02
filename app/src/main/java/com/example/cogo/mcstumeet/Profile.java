@@ -1,8 +1,5 @@
 package com.example.cogo.mcstumeet;
 
-import android.app.Fragment;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -19,6 +16,9 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         bottomBar = BottomBar.attach(this, savedInstanceState);
+        UsersProfileFragment profile = new UsersProfileFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame, profile).commit();
+
         bottomBar.setItemsFromMenu(R.menu.bottom_bar, new OnMenuTabSelectedListener() {
             @Override
             public void onMenuItemSelected(int itemId) {
