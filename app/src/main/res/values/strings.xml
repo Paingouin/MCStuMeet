@@ -19,10 +19,18 @@
     <string name="reenter_password">Reenter password</string>
     <string name="birthday">Birthday</string>
     <string name="create_account">Create account</string>
+    <string name="next">Next</string>
 
     <string name="login_text">Log in</string>
     <string name="login">Log in</string>
     <string name="forgot_pwd">Forgot password?</string>
 
     <string name ="short_information">Short information</string>
+
+    <string-array name="education_array">
+        <item>Medien- und Kommunikationsinformatik</item>
+        <item>Wirtschaftsinformatik</item>
+        <item>Chemie</item>
+        <item>ESB</item>
+    </string-array>
 </resources>

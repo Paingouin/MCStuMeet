@@ -16,9 +16,7 @@ public class RegistrationInterests extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle extras = getIntent().getExtras();
-        String data = extras.getString("gender");
-        data_gender = data;
-        System.out.println("data_gender: " + data_gender);
+        data_gender = extras.getString("gender");
         setContentView(R.layout.activity_registration_interests);
     }
 
@@ -29,11 +27,15 @@ public class RegistrationInterests extends AppCompatActivity {
         if(view == girls){
            intent.putExtra("gender", data_gender);
            intent.putExtra("interests", "girls");
+            System.out.println("girls");
         } else {
             intent.putExtra("gender", data_gender);
             intent.putExtra("interests", "guys");
+            System.out.println("guys");
         }
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
+
+
 }

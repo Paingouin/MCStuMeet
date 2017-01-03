@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_button"
                 android:layout_marginBottom="15dp"
-                android:id="@+id/male_button"
+                android:id="@+id/female_button"
                 android:text="@string/gender_female"
                 android:onClick="passData" />
 
@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_button"
-                android:id="@+id/female_button"
+                android:id="@+id/male_button"
                 android:text="@string/gender_male"
                 android:onClick="passData"/>
         </LinearLayout>

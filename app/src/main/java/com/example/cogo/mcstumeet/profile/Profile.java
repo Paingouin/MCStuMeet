@@ -19,6 +19,7 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+
         bottomBar = BottomBar.attach(this, savedInstanceState);
         UsersProfileFragment profile = new UsersProfileFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.frame, profile).commit();
