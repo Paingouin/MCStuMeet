@@ -47,7 +47,7 @@ public class QueryBuilder {
                                 + "\"birthday\": \"%s\", \"gender\" : \"%s\", \"interests\" : \"%s\", "
                                 +"\"hobbies\" : \"%s\", \"description\" : \"%s\", "
                                 +"\"image\" : \"%s\", \"education\" : \"%s\", "
-                                +"\"languages\" : \"%s\", \"uploadedImaged\" : \"%s\","
+                                +"\"languages\" : \"%s\", \"uploadedImages\" : \"%s\","
                                 +"\"numberOfDates\" : \"%s\", \"dates\" : \"%s\"}, \"safe\" : true}",
                         contact.username, contact.password, contact.email, contact.birthday, contact.gender,
                         contact.interests, contact.hobbies, contact.description, contact.image, contact.education,

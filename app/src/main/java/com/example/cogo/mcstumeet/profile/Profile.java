@@ -12,23 +12,28 @@ import com.roughike.bottombar.OnMenuTabSelectedListener;
 
 // bottom bar is created here
 public class Profile extends AppCompatActivity {
-    BottomBar bottomBar;
+    public BottomBar bottomBar;
+    public UsersProfileFragment profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        Bundle extras = getIntent().getExtras();
+        final String username = extras.getString("username");
 
+        Bundle newBundleUsername = new Bundle();
+        newBundleUsername.putString("usernameBundle", username);
+        this.profile = new UsersProfileFragment();
+        profile.setArguments(newBundleUsername);
 
-        bottomBar = BottomBar.attach(this, savedInstanceState);
-        UsersProfileFragment profile = new UsersProfileFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.frame, profile).commit();
+        this.bottomBar = BottomBar.attach(this, savedInstanceState);
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame, this.profile).commit();
 
-        bottomBar.setItemsFromMenu(R.menu.bottom_bar, new OnMenuTabSelectedListener() {
+        this.bottomBar.setItemsFromMenu(R.menu.bottom_bar, new OnMenuTabSelectedListener() {
             @Override
             public void onMenuItemSelected(int itemId) {
                 if(itemId == R.id.profile_bottombar){
-                    UsersProfileFragment profile = new UsersProfileFragment();
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame, profile).commit();
                 } else if(itemId == R.id.search_bottombar){
                     SearchUserFragment search = new SearchUserFragment();

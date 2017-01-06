@@ -122,7 +122,7 @@ public class RegistrationProfile extends AppCompatActivity {
             db.hobbies = hobbies;
             db.languages = languages;
             db.description = description;
-            db.numberOfDates = 0;
+            db.numberOfDates = "0";
             db.dates = "";
             db.uploadedImages = "";
             if(image.getDrawable() != null) {
@@ -134,11 +134,20 @@ public class RegistrationProfile extends AppCompatActivity {
             tsk.execute(db);
             this.toast.makeText(this, "You have signed in successfully!", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, Profile.class);
+            intent.putExtra("username", this.data_username);
+            intent.putExtra("email", this.data_email);
+            intent.putExtra("birthday", this.data_birthday);
+            intent.putExtra("gender", this.data_gender);
+            intent.putExtra("interests", this.data_interests);
+            intent.putExtra("education", this.educationItem);
+            intent.putExtra("hobbies", hobbies);
+            intent.putExtra("languages", languages);
+            intent.putExtra("description", description);
+            intent.putExtra("image", this.bit.toString());
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         } else {
             this.toast.makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
         }
-
     }
 }
