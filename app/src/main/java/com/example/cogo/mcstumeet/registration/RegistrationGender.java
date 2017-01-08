@@ -22,10 +22,8 @@ public class RegistrationGender extends AppCompatActivity {
         Intent intent = new Intent(this, RegistrationInterests.class);
         if(view == female){
             intent.putExtra("gender", "female");
-            System.out.println("female: " + female);
         } else {
             intent.putExtra("gender", "male");
-            System.out.println("male");
         }
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -37,5 +35,4 @@ public class RegistrationGender extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
-
 }

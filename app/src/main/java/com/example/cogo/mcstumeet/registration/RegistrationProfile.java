@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterViewAnimator;
@@ -16,13 +17,18 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.cogo.mcstumeet.R;
+import com.example.cogo.mcstumeet.base64.Base;
 import com.example.cogo.mcstumeet.database.DatabaseSchema;
+import com.example.cogo.mcstumeet.database.GetUserAsyncTask;
 import com.example.cogo.mcstumeet.database.SaveAsyncTask;
 import com.example.cogo.mcstumeet.profile.Profile;
 import com.example.cogo.mcstumeet.security.Encryption;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Gamze on 03.01.2017.
@@ -30,23 +36,21 @@ import java.io.InputStream;
 
 public class RegistrationProfile extends AppCompatActivity {
     private Toast toast;
-    private String data_gender = "";
-    private String data_interests = "";
-    private String data_username = "";
-    private String data_password = "";
-    private String data_email = "";
-    private String data_birthday = "";
-    private String educationItem = "";
+    private Intent intent;
+
+    private ArrayList<DatabaseSchema> returnValues = new ArrayList<DatabaseSchema>();
+    private DatabaseSchema db = new DatabaseSchema();
+    private boolean usernameIsNotInDb = false;
+    private final int reqCode = 3;
 
     private ImageView image;
     private Button image_button;
-    private Intent intent;
-    private final int reqCode = 3;
     private Uri imageURI;
     private Bitmap bit;
     private InputStream inStream;
 
-    private DatabaseSchema db = new DatabaseSchema();
+    private String data_gender, data_interests, data_username, data_password, data_email, data_birthday;
+    private String educationItem, hobbies, languages, description;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,58 +98,66 @@ public class RegistrationProfile extends AppCompatActivity {
         EditText description_edit = (EditText) findViewById(R.id.registration_description);
         Spinner education = (Spinner) findViewById(R.id.education_spinner);
 
-        education.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                educationItem = adapterView.getItemAtPosition(i).toString();
+        this.hobbies = hobbies_edit.getText().toString();
+        this.languages = languages_edit.getText().toString();
+        this.description = description_edit.getText().toString().toLowerCase();
+        this.educationItem = education.getSelectedItem().toString();
+
+        GetUserAsyncTask task = new GetUserAsyncTask();
+        try {
+            this.returnValues = task.execute().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        if((!(hobbies.isEmpty() || languages.isEmpty() || description.isEmpty() || educationItem.equals("Choose your education")))
+                || (!(hobbies.isEmpty() && languages.isEmpty() && description.isEmpty() && educationItem.equals("Choose your education")))){
+            for(DatabaseSchema db: returnValues){
+                if(!(this.data_username.contains(db.getUsername()))){
+                    System.out.println("class: registrationProfile/data_username: " + data_username);
+                    System.out.println("class: registrationProfile/db.getUsername: " + db.getUsername());
+                    this.usernameIsNotInDb = true;
+                }
             }
+            if(this.usernameIsNotInDb == true){
+                db.username = this.data_username;
+                db.email = this.data_email;
+                db.password = this.data_password;
+                db.birthday = this.data_birthday;
+                db.gender = this.data_gender;
+                db.interests = this.data_interests;
+                db.hobbies = this.hobbies;
+                db.languages = this.languages;
+                db.description = this.description;
+                db.numberOfDates = "0";
+                db.dates = "";
+                db.uploadedImages = "";
+                if(image.getDrawable() != null) {
+                    Base base = new Base();
+                    String imageString = base.convertBitmapToString(bit);
+                    db.image = imageString;
+                } else {
+                    System.out.println("No image uploaded");
+                }
+                if(!(educationItem.equals("Choose your education"))){
+                    db.education = this.educationItem;
+                } else {
+                    db.education = "-";
+                }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                educationItem = "empty";
-            }
-        });
-
-        String hobbies = hobbies_edit.getText().toString();
-        String languages = languages_edit.getText().toString();
-        String description = description_edit.getText().toString().toLowerCase();
-
-        if(!(hobbies.isEmpty() || languages.isEmpty() || description.isEmpty())){
-            //Schauen ob es den usernamen nochmal gibt
-            db.username = this.data_username;
-            db.email = this.data_email;
-            db.password = this.data_password;
-            db.birthday = this.data_birthday;
-            db.gender = this.data_gender;
-            db.interests = this.data_interests;
-            db.education = this.educationItem;
-            db.hobbies = hobbies;
-            db.languages = languages;
-            db.description = description;
-            db.numberOfDates = "0";
-            db.dates = "";
-            db.uploadedImages = "";
-            if(image.getDrawable() != null) {
-                db.image = this.bit.toString();
+                SaveAsyncTask tsk = new SaveAsyncTask();
+                tsk.execute(db);
+                this.toast.makeText(this, "You have signed in successfully!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, Profile.class);
+                intent.putExtra("username", this.data_username);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                
             } else {
-                db.image = "";
+                this.toast.makeText(this, "This username is already taken. Please choose another one.", Toast.LENGTH_SHORT).show();
             }
-            SaveAsyncTask tsk = new SaveAsyncTask();
-            tsk.execute(db);
-            this.toast.makeText(this, "You have signed in successfully!", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(this, Profile.class);
-            intent.putExtra("username", this.data_username);
-            intent.putExtra("email", this.data_email);
-            intent.putExtra("birthday", this.data_birthday);
-            intent.putExtra("gender", this.data_gender);
-            intent.putExtra("interests", this.data_interests);
-            intent.putExtra("education", this.educationItem);
-            intent.putExtra("hobbies", hobbies);
-            intent.putExtra("languages", languages);
-            intent.putExtra("description", description);
-            intent.putExtra("image", this.bit.toString());
-            startActivity(intent);
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         } else {
             this.toast.makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
         }

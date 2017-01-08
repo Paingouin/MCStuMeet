@@ -10,7 +10,7 @@
         <ImageView
             android:id="@+id/header_cover_image"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="80dp"
             android:scaleType="centerCrop"/>
 
         <ImageButton
@@ -22,7 +22,6 @@
             android:layout_marginTop="-60dp"
             android:background="@drawable/profile_circular_border_imageview"
             android:elevation="5dp"
-            android:padding="20dp"
             android:scaleType="centerCrop"/>
 
         <RelativeLayout
@@ -32,14 +31,15 @@
             android:layout_below="@+id/header_cover_image"
             android:background="#3F51B5"
             android:elevation="4dp"
-            android:paddingBottom="24dp">
+            android:paddingBottom="10dp">
 
             <ImageView
                 android:id="@+id/change_picture"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="250dp"
+                android:layout_marginLeft="270dp"
                 android:layout_marginTop="20dp"
+                android:onClick="changeProfilePicture"
                 android:src="@drawable/pencil" />
 
             <TextView
@@ -47,22 +47,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="76dp"
-                android:text="Username"
+                android:layout_marginTop="65dp"
+                android:text="@string/username"
                 android:textColor="#fff"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/user_profile_short_bio"
+                android:id="@+id/user_profile_birthday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/user_profile_name"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="12dp"
-                android:text="Email address | Birthday"
+                android:text="@string/birthday"
                 android:textColor="#fff"
-                android:textSize="15sp" />
+                android:textSize="15dp" />
         </RelativeLayout>
 
         <LinearLayout
@@ -72,24 +71,143 @@
             android:layout_marginTop="5dp"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="fill_parent"
+            <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
                 android:background="#fff"
-                android:padding="50dp"
-                android:text="@string/short_information"/>
+                android:layout_margin="7dp"
+                android:paddingTop="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="20dp">
 
-            <TextView
-                android:layout_width="fill_parent"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="15dp"
+                    android:id="@+id/interest_layout"
+                    android:orientation="horizontal">
+                    <TextView
+                        style="@style/textStyleBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/user_profile_interestedin"
+                        android:text="@string/interested_in"/>
+                    <TextView
+                        style="@style/textStyleCommon"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="-"
+                        android:id="@+id/user_profile_interestedin_text"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_below="@+id/interest_layout"
+                    android:paddingBottom="15dp"
+                    android:id="@+id/education_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        style="@style/textStyleBold"
+                        android:id="@+id/user_profile_education"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/education"/>
+                    <TextView
+                        style="@style/textStyleCommon"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:id="@+id/user_profile_education_text"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_below="@+id/education_layout"
+                    android:paddingBottom="10dp"
+                    android:id="@+id/language_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        style="@style/textStyleBold"
+                        android:id="@+id/user_profile_languages"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/user_profile_languages"
+                        android:text="@string/languages"/>
+                    <TextView
+                        style="@style/textStyleCommon"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:id="@+id/user_profile_languages_text"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="3dp"
                 android:background="#fff"
-                android:padding="50dp"
-                android:text="..." />
+                android:layout_margin="7dp"
+                android:paddingTop="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="20dp">
 
+                <LinearLayout
+                    android:paddingBottom="15dp"
+                    android:id="@+id/hobby_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        style="@style/textStyleBold"
+                        android:id="@+id/user_profile_hobbies"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hobbies"/>
+                    <TextView
+                        style="@style/textStyleCommon"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:id="@+id/user_profile_hobbies_text"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_below="@+id/hobby_layout"
+                    android:id="@+id/information_layout"
+                    android:paddingBottom="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        style="@style/textStyleBold"
+                        android:id="@+id/user_profile_short_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/short_description"/>
+                    <TextView
+                        style="@style/textStyleCommon"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:id="@+id/user_profile_short_description_text"/>
+                </LinearLayout>
+            </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textEnd"
+                android:layout_gravity="end"
+                android:layout_marginRight="20dp"
+                android:text="edit profile"/>
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>

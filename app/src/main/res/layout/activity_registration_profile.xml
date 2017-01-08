@@ -47,13 +47,13 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_below="@+id/profile_layout"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_margin="5dp"
+                android:layout_margin="7dp"
                 android:padding="5dp"
                 android:orientation="vertical"
                 android:background="#fff">
@@ -79,9 +79,12 @@
 
                     <TextView
                         style="@style/textStyleSignin"
+                        android:textColor="#999999"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Education"/>
+                        android:text="@string/education_reg_profile"/>
 
                     <Spinner
                         android:id="@+id/education_spinner"
@@ -123,7 +126,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
                 style="@style/buttonSize"

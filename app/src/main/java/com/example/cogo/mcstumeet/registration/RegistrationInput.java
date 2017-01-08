@@ -18,19 +18,14 @@ import java.net.UnknownHostException;
 public class RegistrationInput extends AppCompatActivity {
     private Toast toast;
     private Encryption encryption = new Encryption();
-    private String data_gender = "";
-    private String data_interests = "";
-    private String encryptedPwd = "";
+    private String data_gender, data_interests, encryptedPwd, splittedEmail;
     private String universityEmail = "student.reutlingen-university.de";
-    private String splittedEmail = "";
-
-    /* we have to check, whether the email is an university email account
-    & check, whether the birthday is a valid date*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_input);
+
         Bundle extras = getIntent().getExtras();
         data_gender = extras.getString("gender");
         data_interests = extras.getString("interests");
@@ -52,8 +47,9 @@ public class RegistrationInput extends AppCompatActivity {
 
         Intent intent = new Intent(this, RegistrationProfile.class);
 
-        if(!(pwd.isEmpty() || pwdValid.isEmpty() || email.isEmpty() || username.isEmpty() || birthday.isEmpty())){
-            if(username.length() > 2) {
+        if((!(pwd.isEmpty() || pwdValid.isEmpty() || email.isEmpty() || username.isEmpty() || birthday.isEmpty()))
+                ||(!(pwd.isEmpty() && pwdValid.isEmpty() && email.isEmpty() && username.isEmpty() && birthday.isEmpty()))){
+            if(username.length() > 1) {
                 if (password.length() > 3) {
                     if (email.matches("(.*)@(.*)")) {
                         String[] forSplitEmail = email.split("@");
@@ -85,10 +81,10 @@ public class RegistrationInput extends AppCompatActivity {
                     this.toast.makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                this.toast.makeText(this, "Your username must contain more than 3 characters!", Toast.LENGTH_LONG).show();
+                this.toast.makeText(this, "Your username must contain more than 1 characters!", Toast.LENGTH_LONG).show();
             }
         } else {
-            this.toast.makeText(this, "Your password must contain more than 4 characters!", Toast.LENGTH_LONG).show();
+            this.toast.makeText(this, "Your password must contain more than 3 characters!", Toast.LENGTH_LONG).show();
         }
     }
 }

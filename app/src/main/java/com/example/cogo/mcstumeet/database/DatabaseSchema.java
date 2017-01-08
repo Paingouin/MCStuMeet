@@ -1,5 +1,7 @@
 package com.example.cogo.mcstumeet.database;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by Gamze on 02.01.2017.
  */

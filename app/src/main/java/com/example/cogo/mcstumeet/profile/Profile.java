@@ -19,13 +19,15 @@ public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
         Bundle extras = getIntent().getExtras();
         final String username = extras.getString("username");
 
         Bundle newBundleUsername = new Bundle();
         newBundleUsername.putString("usernameBundle", username);
+
         this.profile = new UsersProfileFragment();
-        profile.setArguments(newBundleUsername);
+        this.profile.setArguments(newBundleUsername);
 
         this.bottomBar = BottomBar.attach(this, savedInstanceState);
         getSupportFragmentManager().beginTransaction().replace(R.id.frame, this.profile).commit();
@@ -44,7 +46,6 @@ public class Profile extends AppCompatActivity {
                 }
             }
         });
-        // Set the color for the active tab
         bottomBar.setActiveTabColor("#1E90FF");
     }
 }

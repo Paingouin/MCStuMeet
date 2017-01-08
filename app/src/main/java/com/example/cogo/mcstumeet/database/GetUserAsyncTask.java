@@ -1,5 +1,6 @@
 package com.example.cogo.mcstumeet.database;
 
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 
 import java.io.BufferedReader;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
+import com.mongodb.util.JSON;
 
 /**
  * Created by Gamze on 03.01.2017.
@@ -19,11 +21,10 @@ import com.mongodb.DBObject;
 public class GetUserAsyncTask extends AsyncTask<DatabaseSchema, Void, ArrayList<DatabaseSchema>> {
     private static String server_output = null;
     private static String temp_output = null;
+    public ArrayList<DatabaseSchema> user = new ArrayList<DatabaseSchema>();
 
     @Override
     protected ArrayList<DatabaseSchema> doInBackground(DatabaseSchema... arg0) {
-        ArrayList<DatabaseSchema> user = new ArrayList<DatabaseSchema>();
-
         try {
             QueryBuilder qb = new QueryBuilder();
             URL url = new URL(qb.buildContactsGetURL());
@@ -38,15 +39,16 @@ public class GetUserAsyncTask extends AsyncTask<DatabaseSchema, Void, ArrayList<
             while ((temp_output = br.readLine()) != null) {
                 server_output = temp_output;
             }
-
-            String mongoarray = "{ db_list: " + server_output + "}";
-            Object o = com.mongodb.util.JSON.parse(mongoarray);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+            String mongoarray = "{list: " + server_output + "}";
+            Object o = JSON.parse(mongoarray);
             DBObject dbObj = (DBObject) o;
-            BasicDBList userList = (BasicDBList) dbObj.get("db_list");
-            System.out.println("userlist: " + userList);
+            BasicDBList userList = (BasicDBList) dbObj.get("list");
 
-            for (Object obj : userList) {
-                DBObject userObj = (DBObject) obj;
+            for(int i=0; i<userList.size(); i++){
+                DBObject userObj = (DBObject) userList.get(i);
                 DatabaseSchema temp = new DatabaseSchema();
 
                 temp.setUsername(userObj.get("username").toString());
@@ -63,11 +65,9 @@ public class GetUserAsyncTask extends AsyncTask<DatabaseSchema, Void, ArrayList<
                 temp.setNumberOfDates(userObj.get("email").toString());
                 temp.setPassword(userObj.get("password").toString());
                 temp.setUploadedImages(userObj.get("uploadedImages").toString());
-                user.add(temp);
+
+                this.user.add(temp);
             }
-        } catch (Exception e) {
-            e.getMessage();
-        }
-        return user;
+        return this.user;
     }
 }

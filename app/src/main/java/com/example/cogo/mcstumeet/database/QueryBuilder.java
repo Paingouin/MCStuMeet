@@ -42,7 +42,7 @@ public class QueryBuilder {
     public String createContact(DatabaseSchema contact)
     {
         return String
-                .format("{\"document\" : {\"username\": \"%s\", "
+                .format("{\"username\": \"%s\", "
                                 + "\"password\": \"%s\", \"email\": \"%s\", "
                                 + "\"birthday\": \"%s\", \"gender\" : \"%s\", \"interests\" : \"%s\", "
                                 +"\"hobbies\" : \"%s\", \"description\" : \"%s\", "

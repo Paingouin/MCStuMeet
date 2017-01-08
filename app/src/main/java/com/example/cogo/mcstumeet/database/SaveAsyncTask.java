@@ -37,7 +37,6 @@ public class SaveAsyncTask extends AsyncTask<DatabaseSchema, Void, Boolean> {
                 return false;
             }
         } catch (Exception e) {
-            //e.getCause();
             String val = e.getMessage();
             String val2 = val;
             return false;
