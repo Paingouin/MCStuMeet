@@ -49,4 +49,6 @@
         <item>International Operations And Logistics Management</item>
         <item>Production Management</item>
     </string-array>
+
+    <string name ="search">Search for username</string>
 </resources>

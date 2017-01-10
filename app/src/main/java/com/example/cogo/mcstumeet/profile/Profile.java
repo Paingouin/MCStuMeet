@@ -22,12 +22,20 @@ public class Profile extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         final String username = extras.getString("username");
+        final String gender = extras.getString("gender");
+        final String education = extras.getString("education");
+        final String hobbies = extras.getString("hobbies");
+        final String interested_in = extras.getString("interested_in");
 
-        Bundle newBundleUsername = new Bundle();
-        newBundleUsername.putString("usernameBundle", username);
+        final Bundle newBundleUserInformation = new Bundle();
+        newBundleUserInformation.putString("usernameBundle", username);
+        newBundleUserInformation.putString("genderBundle", gender);
+        newBundleUserInformation.putString("educationBundle", education);
+        newBundleUserInformation.putString("hobbiesBundle", hobbies);
+        newBundleUserInformation.putString("interested_in", interested_in);
 
         this.profile = new UsersProfileFragment();
-        this.profile.setArguments(newBundleUsername);
+        this.profile.setArguments(newBundleUserInformation);
 
         this.bottomBar = BottomBar.attach(this, savedInstanceState);
         getSupportFragmentManager().beginTransaction().replace(R.id.frame, this.profile).commit();
@@ -39,6 +47,7 @@ public class Profile extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame, profile).commit();
                 } else if(itemId == R.id.search_bottombar){
                     SearchUserFragment search = new SearchUserFragment();
+                    search.setArguments(newBundleUserInformation);
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame, search).commit();
                 } else if(itemId == R.id.dates_bottombar){
                     DatesFragment dates = new DatesFragment();

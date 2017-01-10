@@ -10,16 +10,22 @@ import android.widget.Toast;
 
 import com.example.cogo.mcstumeet.R;
 import com.example.cogo.mcstumeet.database.DatabaseSchema;
+import com.example.cogo.mcstumeet.database.GetUserAsyncTask;
 import com.example.cogo.mcstumeet.database.SaveAsyncTask;
 import com.example.cogo.mcstumeet.security.Encryption;
 
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 
 public class RegistrationInput extends AppCompatActivity {
     private Toast toast;
     private Encryption encryption = new Encryption();
+    private ArrayList<DatabaseSchema> returnValues = new ArrayList<DatabaseSchema>();
+    private DatabaseSchema db = new DatabaseSchema();
+
     private String data_gender, data_interests, encryptedPwd, splittedEmail;
     private String universityEmail = "student.reutlingen-university.de";
+    private boolean usernameIsInDb = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,17 +53,28 @@ public class RegistrationInput extends AppCompatActivity {
 
         Intent intent = new Intent(this, RegistrationProfile.class);
 
+        this.usernameIsInDb = false;
+
         if((!(pwd.isEmpty() || pwdValid.isEmpty() || email.isEmpty() || username.isEmpty() || birthday.isEmpty()))
                 ||(!(pwd.isEmpty() && pwdValid.isEmpty() && email.isEmpty() && username.isEmpty() && birthday.isEmpty()))){
             if(username.length() > 1) {
-                if (password.length() > 3) {
-                    if (email.matches("(.*)@(.*)")) {
-                        String[] forSplitEmail = email.split("@");
-                        for (int i = 0; i < forSplitEmail.length; i++) {
-                            splittedEmail = forSplitEmail[1];
-                        }
-                        if (pwd.equals(pwdValid)) {
-                            if (universityEmail.equals(splittedEmail)) {
+                GetUserAsyncTask task = new GetUserAsyncTask();
+                this.returnValues = task.execute().get();
+
+                for(DatabaseSchema db: this.returnValues){
+                    if((username.equals(db.getUsername()))){
+                        this.usernameIsInDb = true;
+                    }
+                }
+                if(this.usernameIsInDb == false){
+                    if (password.length() > 3) {
+                        if (email.matches("(.*)@(.*)")) {
+                            String[] forSplitEmail = email.split("@");
+                            for (int i = 0; i < forSplitEmail.length; i++) {
+                                splittedEmail = forSplitEmail[1];
+                            }
+                            if (pwd.equals(pwdValid)) {
+                                if (universityEmail.equals(splittedEmail)) {
                                     this.encryptedPwd = this.encryption.encrypt(pwd);
                                     intent.putExtra("gender", this.data_gender);
                                     intent.putExtra("interests", this.data_interests);
@@ -68,23 +85,26 @@ public class RegistrationInput extends AppCompatActivity {
 
                                     startActivity(intent);
                                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                } else {
+                                    this.toast.makeText(this, "Email is unvalid. Please use your university email address!", Toast.LENGTH_SHORT).show();
+                                }
                             } else {
-                                this.toast.makeText(this, "Email is unvalid. Please use your university email address!", Toast.LENGTH_SHORT).show();
+                                this.toast.makeText(this, "No match between your passwords!", Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            this.toast.makeText(this, "No match between your passwords!", Toast.LENGTH_SHORT).show();
+                            this.toast.makeText(this, "Unvalid email address!", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        this.toast.makeText(this, "Unvalid email address!", Toast.LENGTH_SHORT).show();
+                        this.toast.makeText(this, "Your password must contain more than 3 characters!", Toast.LENGTH_SHORT).show();
                     }
-                } else {
-                    this.toast.makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
+                }  else {
+                this.toast.makeText(this, "This username is already taken. Please choose another one.", Toast.LENGTH_SHORT).show();
                 }
             } else {
                 this.toast.makeText(this, "Your username must contain more than 1 characters!", Toast.LENGTH_LONG).show();
             }
         } else {
-            this.toast.makeText(this, "Your password must contain more than 3 characters!", Toast.LENGTH_LONG).show();
+            this.toast.makeText(this, "Please fill out all fields!", Toast.LENGTH_LONG).show();
         }
     }
 }

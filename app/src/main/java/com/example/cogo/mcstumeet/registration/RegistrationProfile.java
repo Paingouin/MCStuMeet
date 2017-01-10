@@ -40,7 +40,6 @@ public class RegistrationProfile extends AppCompatActivity {
 
     private ArrayList<DatabaseSchema> returnValues = new ArrayList<DatabaseSchema>();
     private DatabaseSchema db = new DatabaseSchema();
-    private boolean usernameIsNotInDb = false;
     private final int reqCode = 3;
 
     private ImageView image;
@@ -92,7 +91,7 @@ public class RegistrationProfile extends AppCompatActivity {
         }
     }
 
-    public void passData(View view){
+    public void passData(View view) {
         EditText hobbies_edit = (EditText) findViewById(R.id.registration_hobbies);
         EditText languages_edit = (EditText) findViewById(R.id.registration_languages);
         EditText description_edit = (EditText) findViewById(R.id.registration_description);
@@ -112,54 +111,44 @@ public class RegistrationProfile extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        if((!(hobbies.isEmpty() || languages.isEmpty() || description.isEmpty() || educationItem.equals("Choose your education")))
-                || (!(hobbies.isEmpty() && languages.isEmpty() && description.isEmpty() && educationItem.equals("Choose your education")))){
-            for(DatabaseSchema db: returnValues){
-                if(!(this.data_username.contains(db.getUsername()))){
-                    System.out.println("class: registrationProfile/data_username: " + data_username);
-                    System.out.println("class: registrationProfile/db.getUsername: " + db.getUsername());
-                    this.usernameIsNotInDb = true;
-                }
+        if ((!(hobbies.isEmpty() || languages.isEmpty() || description.isEmpty() || educationItem.equals("Choose your education")))
+                || (!(hobbies.isEmpty() && languages.isEmpty() && description.isEmpty() && educationItem.equals("Choose your education")))) {
+            db.username = this.data_username;
+            db.email = this.data_email;
+            db.password = this.data_password;
+            db.birthday = this.data_birthday;
+            db.gender = this.data_gender;
+            db.interests = this.data_interests;
+            db.hobbies = this.hobbies;
+            db.languages = this.languages;
+            db.description = this.description;
+            db.numberOfDates = "0";
+            db.dates = "";
+            db.uploadedImages = "";
+            if (image.getDrawable() != null) {
+                Base base = new Base();
+                String imageString = base.convertBitmapToString(bit);
+                db.image = imageString;
+            } else {
+                System.out.println("No image uploaded");
             }
-            if(this.usernameIsNotInDb == true){
-                db.username = this.data_username;
-                db.email = this.data_email;
-                db.password = this.data_password;
-                db.birthday = this.data_birthday;
-                db.gender = this.data_gender;
-                db.interests = this.data_interests;
-                db.hobbies = this.hobbies;
-                db.languages = this.languages;
-                db.description = this.description;
-                db.numberOfDates = "0";
-                db.dates = "";
-                db.uploadedImages = "";
-                if(image.getDrawable() != null) {
-                    Base base = new Base();
-                    String imageString = base.convertBitmapToString(bit);
-                    db.image = imageString;
-                } else {
-                    System.out.println("No image uploaded");
-                }
-                if(!(educationItem.equals("Choose your education"))){
-                    db.education = this.educationItem;
-                } else {
-                    db.education = "-";
-                }
-
+            if (educationItem.equals("Choose your education")) {
+                this.toast.makeText(this, "Please choose your education!" +
+                        "", Toast.LENGTH_SHORT).show();
+            } else {
+                db.education = this.educationItem;
                 SaveAsyncTask tsk = new SaveAsyncTask();
                 tsk.execute(db);
                 this.toast.makeText(this, "You have signed in successfully!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, Profile.class);
                 intent.putExtra("username", this.data_username);
+                intent.putExtra("gender", this.data_gender);
+                intent.putExtra("education", this.educationItem);
+                intent.putExtra("hobbies", this.hobbies);
+                intent.putExtra("interested_in", this.data_interests);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                
-            } else {
-                this.toast.makeText(this, "This username is already taken. Please choose another one.", Toast.LENGTH_SHORT).show();
             }
-        } else {
-            this.toast.makeText(this, "Please fill out all fields!", Toast.LENGTH_SHORT).show();
         }
     }
 }

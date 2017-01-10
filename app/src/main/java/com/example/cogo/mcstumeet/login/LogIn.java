@@ -19,7 +19,7 @@ import java.util.concurrent.ExecutionException;
 
 public class LogIn extends AppCompatActivity {
     private Toast toast;
-    private String passwordDB;
+    private String passwordDB, gender, hobbies, education, interested_in;
     private ArrayList<DatabaseSchema> returnValues = new ArrayList<DatabaseSchema>();
 
     @Override
@@ -52,12 +52,21 @@ public class LogIn extends AppCompatActivity {
             if (username.equals(db.getUsername())) {
                 try {
                     this.passwordDB = decryption.decrypt(db.getPassword());
+                    this.gender = db.getGender();
+                    this.education = db.getEducation();
+                    this.hobbies = db.getHobbies();
+                    this.interested_in = db.getInterests();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 if (password.equals(this.passwordDB)) {
                     Intent intent = new Intent(this, Profile.class);
                     intent.putExtra("username", username);
+                    intent.putExtra("gender", this.gender);
+                    intent.putExtra("education", this.education);
+                    intent.putExtra("hobbies", this.hobbies);
+                    intent.putExtra("interested_in", this.interested_in);
+
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 } else {

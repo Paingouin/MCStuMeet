@@ -40,8 +40,6 @@ public class UsersProfileFragment extends Fragment {
     private TextView text_username, text_birthday, text_interests, text_education, text_language, text_hobby, text_des;
     private ImageView imageView;
 
-    private String username, birthday, interests, education, language, hobby, description;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -64,14 +62,6 @@ public class UsersProfileFragment extends Fragment {
         this.text_hobby = (TextView) view.findViewById(R.id.user_profile_hobbies_text);
         this.text_des = (TextView) view.findViewById(R.id.user_profile_short_description_text);
         this.imageView = (ImageView) view.findViewById(R.id.user_profile_photo);
-
-        this.username = text_username.getText().toString();
-        this.birthday = text_birthday.getText().toString();
-        this.interests = text_interests.getText().toString();
-        this.education = text_education.getText().toString();
-        this.language = text_language.getText().toString();
-        this.hobby = text_hobby.getText().toString();
-        this.description = text_des.getText().toString();
 
         for(DatabaseSchema db : returnValues) {
             if (usernameBundle.contains(db.getUsername())) {
