@@ -9,70 +9,45 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/search_layout"
-            android:layout_width="match_parent"
+        <TextView
+            style="@style/textStyleBold"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            android:orientation="horizontal"
-            android:paddingLeft="10dp"
-            android:weightSum="1">
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="10dp"
+            android:padding="10dp"
+            android:text="Search for a match:"/>
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="?android:attr/actionModeWebSearchDrawable"
-                android:layout_below="@+id/search_icon"
-                android:layout_marginTop="23dp"
-                android:id="@+id/imageView"
-                android:onClick="searchUsername"
-                tools:targetApi="lollipop" />
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/search_wrapper"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="100dp"
-                android:layout_marginLeft="10dp">
-                <EditText
-                    style="@style/textStyleSignin"
-                    android:id="@+id/search_user"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text"
-                    android:hint="@string/search"/>
-            </android.support.design.widget.TextInputLayout>
-        </LinearLayout>
-
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="90dp"
+        android:padding="10dp"
+        android:onClick="showProfile">
         <LinearLayout
             android:id="@+id/text_layout"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/search_layout"
-            android:orientation="horizontal">
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp">
             <TextView
-                android:layout_width="match_parent"
+                style="@style/textStyleCommon"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:textAlignment="center"
-                android:text="–––––––– or search for ––––––––"/>
+                android:text="You can filter by this category:"/>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_below="@id/text_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textAlignment="center"
+            android:layout_below="@+id/text_layout"
+            android:layout_marginTop="5dp"
             android:layout_centerHorizontal="true"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
+            android:paddingLeft="28dp"
             android:orientation="horizontal">
-            <Button
-                android:id="@+id/gender_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="searchGender"
-                android:text="gender"/>
             <Button
                 android:id="@+id/hobbies_button"
                 android:layout_width="wrap_content"
@@ -92,33 +67,52 @@
                 android:onClick="searchLanguage"
                 android:text="language"/>
         </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/search_layout"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="220dp"
             android:orientation="vertical">
 
-            <TextView
-                style="@style/textStyleCommon"
-                android:paddingLeft="10dp"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Results:"/>
+                android:orientation="horizontal">
+
+            <TextView
+                style="@style/textStyleBold"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Do you like this person?"/>
+
+                <ImageButton
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="130dp"
+                    app:srcCompat="@android:drawable/stat_notify_sync"
+                    android:id="@+id/imageButton" />
+
+            </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#fff"
-                android:layout_margin="7dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
                 android:padding="10dp"
                 android:onClick="showProfile">
 
                 <ImageButton
                     android:id="@+id/user_profile_photo"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_below="@+id/header_cover_image"
                     android:background="@drawable/profile_circular_border_imageview" />
 
@@ -126,11 +120,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingBottom="5dp"
-                    android:layout_marginLeft="90dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="115dp"
                     android:id="@+id/username_layout"
                     android:orientation="horizontal">
                     <TextView
                         style="@style/textStyleBold"
+                        android:textSize="26dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/search_profile_username"
@@ -146,7 +142,7 @@
                     android:orientation="horizontal">
                     <TextView
                         style="@style/textStyleBold"
-                        android:layout_marginLeft="90dp"
+                        android:layout_marginLeft="115dp"
                         android:id="@+id/search_profile_education"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -159,185 +155,37 @@
                         android:text="-"
                         android:id="@+id/search_profile_education_text"/>
                 </LinearLayout>
-
                 <LinearLayout
-                    android:layout_below="@+id/education_layout"
-                    android:paddingBottom="10dp"
-                    android:id="@+id/interested_in_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/user_profile_photo"
                     android:orientation="horizontal">
-                    <TextView
-                        style="@style/textStyleBold"
-                        android:layout_marginLeft="90dp"
-                        android:id="@+id/search_profile_hobbies"
+
+                    <Button
+                        android:background="@drawable/rounded_action_button"
+                        android:textColor="#FFFFFF"
+                        android:id="@+id/button_show"
+                        android:paddingLeft="25dp"
+                        android:paddingRight="25dp"
+                        android:layout_marginRight="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hobbies"/>
-                    <TextView
-                        style="@style/textStyleCommon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_width="match_parent"
+                        android:text="Show Profile"/>
+                    <Button
+                        android:id="@+id/button_date"
+                        android:background="@drawable/rounded_action_button"
+                        android:textColor="#FFFFFF"
+                        android:paddingRight="16dp"
+                        android:paddingLeft="16dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="-"
-                        android:id="@+id/search_profile_hobbies_text"/>
+                        android:text="Send date request"/>
+
                 </LinearLayout>
             </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#fff"
-                android:layout_margin="7dp"
-                android:padding="10dp"
-                android:onClick="showProfile">
-
-                <ImageButton
-                    android:id="@+id/user_profile_photo2"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_below="@+id/header_cover_image"
-                    android:background="@drawable/profile_circular_border_imageview" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingBottom="5dp"
-                    android:layout_marginLeft="90dp"
-                    android:id="@+id/username_layout2"
-                    android:orientation="horizontal">
-                    <TextView
-                        style="@style/textStyleBold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/search_profile_username2"
-                        android:text="Username"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_below="@+id/username_layout2"
-                    android:paddingBottom="5dp"
-                    android:id="@+id/education_layout2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-                    <TextView
-                        style="@style/textStyleBold"
-                        android:layout_marginLeft="90dp"
-                        android:id="@+id/search_profile_education2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/education"/>
-                    <TextView
-                        style="@style/textStyleCommon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="-"
-                        android:id="@+id/search_profile_education_text2"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_below="@+id/education_layout2"
-                    android:paddingBottom="10dp"
-                    android:id="@+id/interested_in_layout2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-                    <TextView
-                        style="@style/textStyleBold"
-                        android:layout_marginLeft="90dp"
-                        android:id="@+id/search_profile_hobbies2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Hobbies"/>
-                    <TextView
-                        style="@style/textStyleCommon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="-"
-                        android:id="@+id/search_profile_hobbies_text2"/>
-                </LinearLayout>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#fff"
-                android:layout_margin="7dp"
-                android:padding="10dp"
-                android:onClick="showProfile">
-
-                <ImageButton
-                    android:id="@+id/user_profile_photo3"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_below="@+id/header_cover_image"
-                    android:background="@drawable/profile_circular_border_imageview" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingBottom="5dp"
-                    android:layout_marginLeft="90dp"
-                    android:id="@+id/username_layout3"
-                    android:orientation="horizontal">
-                    <TextView
-                        style="@style/textStyleBold"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/search_profile_username3"
-                        android:text="Username"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_below="@+id/username_layout3"
-                    android:paddingBottom="5dp"
-                    android:id="@+id/education_layout3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-                    <TextView
-                        style="@style/textStyleBold"
-                        android:layout_marginLeft="90dp"
-                        android:id="@+id/search_profile_education3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/education"/>
-                    <TextView
-                        style="@style/textStyleCommon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="-"
-                        android:id="@+id/search_profile_education_text3"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_below="@+id/education_layout3"
-                    android:paddingBottom="10dp"
-                    android:id="@+id/interested_in_layout3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-                    <TextView
-                        style="@style/textStyleBold"
-                        android:layout_marginLeft="90dp"
-                        android:id="@+id/search_profile_hobbies3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Hobbies"/>
-                    <TextView
-                        style="@style/textStyleCommon"
-                        android:layout_marginLeft="10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="-"
-                        android:id="@+id/search_profile_hobbies_text3"/>
-                </LinearLayout>
-            </RelativeLayout>
-
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>

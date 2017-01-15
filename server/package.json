@@ -1,0 +1,26 @@
+{
+  "name": "StuMeet",
+  "version": "0.0.1",
+  "description": "A dating mobile application",
+  "author": "Gamze  Doğan",
+  "contributors": [{
+    "name": "Callum Osborn"
+  }, {
+    "name": "Özgün Baş"
+  }, {
+    "name": "Olga Borrego"
+  }],
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "respository": {
+    "type": "git",
+    "url": "https://github.com/callumosborn/MCStuMeet.git"
+  },
+  "dependencies": {
+      "express": "^4.14.0",
+      "body-parser": "^1.15.2",
+      "socket.io": "^1.5.0"
+  }
+}
