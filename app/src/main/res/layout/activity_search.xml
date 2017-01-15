@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -16,58 +15,8 @@
             android:layout_marginTop="50dp"
             android:layout_marginLeft="10dp"
             android:padding="10dp"
-            android:text="Search for a match:"/>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#fff"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="90dp"
-        android:padding="10dp"
-        android:onClick="showProfile">
-        <LinearLayout
-            android:id="@+id/text_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp">
-            <TextView
-                style="@style/textStyleCommon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="You can filter by this category:"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/text_layout"
-            android:layout_marginTop="5dp"
-            android:layout_centerHorizontal="true"
-            android:paddingLeft="28dp"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/hobbies_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="searchHobbies"
-                android:text="hobbies"/>
-            <Button
-                android:id="@+id/education_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="searchEducation"
-                android:text="education"/>
-            <Button
-                android:id="@+id/language_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="searchLanguage"
-                android:text="language"/>
-        </LinearLayout>
-        </RelativeLayout>
+            android:text="Search for a match:"
+            android:id="@+id/textView2" />
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -95,7 +44,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="130dp"
                     app:srcCompat="@android:drawable/stat_notify_sync"
-                    android:id="@+id/imageButton" />
+                    android:id="@+id/imageButton"
+                    android:onClick="refreshSearch"/>
 
             </LinearLayout>
 
@@ -103,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#fff"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="9dp"
                 android:layout_marginRight="7dp"
                 android:layout_marginLeft="7dp"
                 android:padding="10dp"
@@ -141,15 +91,8 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
                     <TextView
-                        style="@style/textStyleBold"
-                        android:layout_marginLeft="115dp"
-                        android:id="@+id/search_profile_education"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/education"/>
-                    <TextView
                         style="@style/textStyleCommon"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="115dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="-"
@@ -187,5 +130,59 @@
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:padding="9dp"
+            android:onClick="showProfile"
+            android:layout_below="@+id/textView2"
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_alignStart="@+id/textView2">
+            <LinearLayout
+                android:id="@+id/text_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp">
+                <TextView
+                    style="@style/textStyleCommon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="You can filter by this category:"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_layout"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/gender_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="gender"/>
+
+                <Button
+                    android:id="@+id/hobbies_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hobbies"/>
+                <Button
+                    android:id="@+id/education_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="education"/>
+                <Button
+                    android:id="@+id/language_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="language"/>
+            </LinearLayout>
+            </RelativeLayout>
     </RelativeLayout>
 </ScrollView>

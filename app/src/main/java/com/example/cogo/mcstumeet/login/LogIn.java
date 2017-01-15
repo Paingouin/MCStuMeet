@@ -19,7 +19,7 @@ import java.util.concurrent.ExecutionException;
 
 public class LogIn extends AppCompatActivity {
     private Toast toast;
-    private String passwordDB, gender, hobbies, education, interested_in;
+    private String passwordDB, gender, hobbies, education, interested_in, language;
     private ArrayList<DatabaseSchema> returnValues = new ArrayList<DatabaseSchema>();
 
     @Override
@@ -48,31 +48,38 @@ public class LogIn extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        boolean usernameCorrect = false, passwordCorrect = false;
+        Intent intent = new Intent(this, Profile.class);
+
         for(DatabaseSchema db: returnValues) {
             if (username.equals(db.getUsername())) {
+                usernameCorrect = true;
                 try {
                     this.passwordDB = decryption.decrypt(db.getPassword());
                     this.gender = db.getGender();
                     this.education = db.getEducation();
                     this.hobbies = db.getHobbies();
                     this.interested_in = db.getInterests();
+                    this.language = db.getLanguages();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 if (password.equals(this.passwordDB)) {
-                    Intent intent = new Intent(this, Profile.class);
+                    passwordCorrect = true;
                     intent.putExtra("username", username);
                     intent.putExtra("gender", this.gender);
                     intent.putExtra("education", this.education);
                     intent.putExtra("hobbies", this.hobbies);
                     intent.putExtra("interested_in", this.interested_in);
-
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                } else {
-                    this.toast.makeText(this, "Password or username is incorrect!", Toast.LENGTH_SHORT).show();
+                    intent.putExtra("languages", this.language);
                 }
             }
+        }
+        if(usernameCorrect || passwordCorrect){
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        } else {
+            this.toast.makeText(this, "Credentials incorrect!", Toast.LENGTH_SHORT).show();
         }
     }
 

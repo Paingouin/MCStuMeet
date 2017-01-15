@@ -25,6 +25,7 @@ public class Profile extends AppCompatActivity {
         final String gender = extras.getString("gender");
         final String education = extras.getString("education");
         final String hobbies = extras.getString("hobbies");
+        final String languages = extras.getString("languages");
         final String interested_in = extras.getString("interested_in");
 
         final Bundle newBundleUserInformation = new Bundle();
@@ -32,7 +33,8 @@ public class Profile extends AppCompatActivity {
         newBundleUserInformation.putString("genderBundle", gender);
         newBundleUserInformation.putString("educationBundle", education);
         newBundleUserInformation.putString("hobbiesBundle", hobbies);
-        newBundleUserInformation.putString("interested_in", interested_in);
+        newBundleUserInformation.putString("interestedInBundle", interested_in);
+        newBundleUserInformation.putString("languagesBundle", languages);
 
         this.profile = new UsersProfileFragment();
         this.profile.setArguments(newBundleUserInformation);

@@ -33,15 +33,6 @@
             android:elevation="4dp"
             android:paddingBottom="10dp">
 
-            <ImageView
-                android:id="@+id/change_picture"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="270dp"
-                android:layout_marginTop="20dp"
-                android:onClick="changeProfilePicture"
-                android:src="@drawable/pencil" />
-
             <TextView
                 android:id="@+id/user_profile_name"
                 android:layout_width="wrap_content"
