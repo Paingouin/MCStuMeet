@@ -8,45 +8,100 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            style="@style/textStyleBold"
+        <RelativeLayout
+            android:id="@+id/profile_layout_blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#3F51B5">
+
+            <TextView
+                style="@style/textStyleBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:padding="20dp"
+                android:textColor="#FFF"
+                android:text="Search for a match"
+                android:id="@+id/textView2" />
+        </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@+id/profile_layout_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:layout_marginRight="7dp"
+        android:layout_marginLeft="7dp"
+        android:padding="10dp"
+        android:onClick="showProfile">
+        <LinearLayout
+            android:id="@+id/text_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="10dp"
-            android:padding="10dp"
-            android:text="Search for a match:"
-            android:id="@+id/textView2" />
+            android:layout_centerHorizontal="true">
+            <TextView
+                style="@style/textStyleCommon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="You can filter by this category:"/>
+        </LinearLayout>
 
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text_layout"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/gender_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="gender"/>
+                <Button
+                    android:id="@+id/hobbies_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hobbies"/>
+                <Button
+                    android:id="@+id/education_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="education"/>
+                <Button
+                    android:id="@+id/language_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="language"/>
+            </LinearLayout>
+        </RelativeLayout>
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/search_layout"
-            android:layout_marginTop="220dp"
+            android:layout_marginTop="240dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
-            <TextView
-                style="@style/textStyleBold"
-                android:paddingLeft="20dp"
-                android:paddingTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Do you like this person?"/>
-
-                <ImageButton
-                    android:layout_marginTop="10dp"
+                <TextView
+                    style="@style/textStyleBold"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="130dp"
+                    android:text="Do you like this person?"/>
+
+                <ImageButton
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="140dp"
                     app:srcCompat="@android:drawable/stat_notify_sync"
                     android:id="@+id/imageButton"
                     android:onClick="refreshSearch"/>
-
             </LinearLayout>
 
             <RelativeLayout
@@ -56,7 +111,7 @@
                 android:layout_marginTop="9dp"
                 android:layout_marginRight="7dp"
                 android:layout_marginLeft="7dp"
-                android:padding="10dp"
+                android:padding="15dp"
                 android:onClick="showProfile">
 
                 <ImageButton
@@ -99,10 +154,9 @@
                         android:id="@+id/search_profile_education_text"/>
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="15dp"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@+id/user_profile_photo"
                     android:orientation="horizontal">
@@ -111,8 +165,8 @@
                         android:background="@drawable/rounded_action_button"
                         android:textColor="#FFFFFF"
                         android:id="@+id/button_show"
-                        android:paddingLeft="25dp"
-                        android:paddingRight="25dp"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"
                         android:layout_marginRight="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -121,8 +175,8 @@
                         android:id="@+id/button_date"
                         android:background="@drawable/rounded_action_button"
                         android:textColor="#FFFFFF"
-                        android:paddingRight="16dp"
-                        android:paddingLeft="16dp"
+                        android:paddingRight="15dp"
+                        android:paddingLeft="15dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Send date request"/>
@@ -130,59 +184,5 @@
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:padding="9dp"
-            android:onClick="showProfile"
-            android:layout_below="@+id/textView2"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_alignStart="@+id/textView2">
-            <LinearLayout
-                android:id="@+id/text_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp">
-                <TextView
-                    style="@style/textStyleCommon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="You can filter by this category:"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_layout"
-                android:layout_marginTop="5dp"
-                android:layout_centerHorizontal="true"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/gender_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="gender"/>
-
-                <Button
-                    android:id="@+id/hobbies_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="hobbies"/>
-                <Button
-                    android:id="@+id/education_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="education"/>
-                <Button
-                    android:id="@+id/language_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="language"/>
-            </LinearLayout>
-            </RelativeLayout>
     </RelativeLayout>
 </ScrollView>

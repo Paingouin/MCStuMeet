@@ -10,7 +10,7 @@
         <ImageView
             android:id="@+id/header_cover_image"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="110dp"
             android:scaleType="centerCrop"/>
 
         <ImageButton
@@ -192,13 +192,6 @@
                         android:id="@+id/user_profile_short_description_text"/>
                 </LinearLayout>
             </RelativeLayout>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="textEnd"
-                android:layout_gravity="end"
-                android:layout_marginRight="20dp"
-                android:text="edit profile"/>
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>

@@ -1,18 +1,15 @@
 package com.example.cogo.mcstumeet.fragments;
 
+import android.support.v4.app.Fragment;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.app.Fragment;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,12 +32,11 @@ import java.util.regex.Pattern;
  * Created by Gamze on 22.12.2016.
  */
 
-public class SearchUserFragment extends Fragment{
+public class SearchUserFragment extends Fragment {
     private ArrayList<DatabaseSchema> returnValues = new ArrayList<DatabaseSchema>();
     private ArrayList<DatabaseSchema> userMatch = new ArrayList<DatabaseSchema>();
-    private DatabaseSchema searchUserObject = new DatabaseSchema();
+    private String interestedInBundle, usernameBundle, hobbiesBundle, educationBundle, languageBundle;
     private DatabaseSchema randomUser;
-    private String genderBundle, interestedInBundle, usernameBundle, hobbiesBundle, educationBundle, languageBundle;
     private GetUserAsyncTask task = new GetUserAsyncTask();
     private Toast toast;
     private View view;
@@ -51,7 +47,6 @@ public class SearchUserFragment extends Fragment{
         this.view = inflater.inflate(R.layout.activity_search, container, false);
 
         this.usernameBundle = this.getArguments().getString("usernameBundle");
-        this.genderBundle = this.getArguments().getString("genderBundle");
         this.interestedInBundle = this.getArguments().getString("interestedInBundle");
         this.hobbiesBundle = this.getArguments().getString("hobbiesBundle");
         this.educationBundle = this.getArguments().getString("educationBundle");
@@ -73,7 +68,6 @@ public class SearchUserFragment extends Fragment{
             e.printStackTrace();
         }
 
-        this.interestedInBundle = this.interestedInBundle;
         if(this.interestedInBundle.equals("girls")){
             this.interestedInBundle = "female";
         } else {
@@ -87,14 +81,21 @@ public class SearchUserFragment extends Fragment{
                 }
             }
         }
-        this.searchMatch();
-
+        if(!(this.userMatch.isEmpty())){
+            this.searchMatch();
+        } else {
+            this.noMatch();
+        }
         refresh.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                searchMatch();
+                if(!(userMatch.isEmpty())){
+                    searchMatch();
+                } else {
+                    noMatch();
+                }
             }
         });
 
@@ -110,15 +111,19 @@ public class SearchUserFragment extends Fragment{
                         }
                     }
                 }
-                searchMatch();
+                if(!(userMatch.isEmpty())){
+                    searchMatch();
+                } else {
+                    noMatch();
+                    toast.makeText(getActivity(), "No match!", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
         education.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 userMatch.clear();
                 for(DatabaseSchema db: returnValues){
                     if (interestedInBundle.equals(db.getGender())) {
@@ -129,7 +134,11 @@ public class SearchUserFragment extends Fragment{
                         }
                     }
                 }
-                searchMatch();
+                if(!(userMatch.isEmpty())){
+                    searchMatch();
+                } else {
+                    noMatch();
+                }
             }
         });
 
@@ -144,19 +153,21 @@ public class SearchUserFragment extends Fragment{
                     if (interestedInBundle.equals(db.getGender())) {
                         if (!(db.getUsername().equals(usernameBundle))) {
                             if (splitLanguages != null) {
-                                for (int i=0; i < splitLanguages.length; i++) {
+                                for (int i=0; i<splitLanguages.length; i++) {
+                                    System.out.println("lan" + splitLanguages[i]);
+                                    System.out.println("user " + db.getLanguages());
                                     if (db.getLanguages().toLowerCase().contains(splitLanguages[i])) {
                                         userMatch.add(db);
-                                        searchMatch();
                                     }
                                 }
                             }
                         }
                     }
                 }
-
-                for (DatabaseSchema db : userMatch) {
-                    System.out.println("alle: " + db.getUsername());
+                if(!(userMatch.isEmpty())){
+                    searchMatch();
+                } else {
+                    noMatch();
                 }
             }
         });
@@ -176,15 +187,16 @@ public class SearchUserFragment extends Fragment{
                                     System.out.println("db get hobbies " + db.getHobbies());
                                     if (db.getHobbies().toLowerCase().contains(splitHobbies[i])) {
                                         userMatch.add(db);
-                                        searchMatch();
-                                    }
-                                    if (userMatch.isEmpty()) {
-                                       //no match
                                     }
                                 }
                             }
                         }
                     }
+                }
+                if (!(userMatch.isEmpty())) {
+                    searchMatch();
+                } else {
+                    noMatch();
                 }
             }
         });
@@ -208,15 +220,19 @@ public class SearchUserFragment extends Fragment{
             String education_random = tempUser.getEducation();
             education.setText(education_random);
         } else if(this.userMatch.isEmpty()) {
-            Button showButton = (Button) this.view.findViewById(R.id.button_show);
-            Button dateButton = (Button) this.view.findViewById(R.id.button_date);
-            ViewGroup layoutShow = (ViewGroup) showButton.getParent();
-            ViewGroup layoutDate = (ViewGroup) dateButton.getParent();
-            if(layoutShow != null && layoutDate != null){
-                layoutShow.removeView(showButton);
-                layoutDate.removeView(dateButton);
-            }
+
         }
+    }
+
+    private void noMatch(){
+        toast.makeText(getActivity(), "We are sorry, but there is no match!", Toast.LENGTH_LONG).show();
+        TextView usernameNoMatch = (TextView) this.view.findViewById(R.id.search_profile_username);
+        TextView educationNoMatch = (TextView) this.view.findViewById(R.id.search_profile_education_text);
+        ImageView imageNoMatch = (ImageView) this.view.findViewById(R.id.user_profile_photo);
+
+        imageNoMatch.setImageDrawable(null);
+        usernameNoMatch.setText("No match");
+        educationNoMatch.setText("-");
     }
 
     private DatabaseSchema getRandomUser(){
