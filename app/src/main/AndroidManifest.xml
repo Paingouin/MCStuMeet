@@ -24,6 +24,8 @@
         <activity android:name=".registration.RegistrationInput" />
         <activity android:name=".login.LogIn" />
         <activity android:name=".profile.Profile"/>
+        <activity android:name=".profile.ShowProfile"/>
+        <activity android:name=".date.SendRequest"/>
         <activity android:name=".registration.RegistrationProfile"/>
     </application>
 

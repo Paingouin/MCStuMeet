@@ -164,7 +164,7 @@
                     <Button
                         android:background="@drawable/rounded_action_button"
                         android:textColor="#FFFFFF"
-                        android:id="@+id/button_show"
+                        android:id="@+id/show_button"
                         android:paddingLeft="30dp"
                         android:paddingRight="30dp"
                         android:layout_marginRight="10dp"

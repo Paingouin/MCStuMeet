@@ -1,5 +1,6 @@
 package com.example.cogo.mcstumeet.fragments;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ import com.example.cogo.mcstumeet.R;
 import com.example.cogo.mcstumeet.base64.Base;
 import com.example.cogo.mcstumeet.database.DatabaseSchema;
 import com.example.cogo.mcstumeet.database.GetUserAsyncTask;
+import com.example.cogo.mcstumeet.date.SendRequest;
+import com.example.cogo.mcstumeet.profile.ShowProfile;
 
 import org.w3c.dom.Text;
 
@@ -55,10 +58,10 @@ public class SearchUserFragment extends Fragment {
         ImageButton refresh = (ImageButton) view.findViewById(R.id.imageButton);
         Button language = (Button) view.findViewById(R.id.language_button);
         Button gender = (Button) view.findViewById(R.id.gender_button);
-        final Button showButton = (Button) view.findViewById(R.id.button_show);
-        final Button dateButton = (Button) view.findViewById(R.id.button_date);
-        final Button hobbies = (Button) view.findViewById(R.id.hobbies_button);
-        final Button education = (Button) view.findViewById(R.id.education_button);
+        Button hobbies = (Button) view.findViewById(R.id.hobbies_button);
+        Button education = (Button) view.findViewById(R.id.education_button);
+        Button showProfile = (Button) view.findViewById(R.id.show_button);
+        Button dateUser = (Button) view.findViewById(R.id.button_date);
 
         try {
             this.returnValues = this.task.execute().get();
@@ -154,8 +157,6 @@ public class SearchUserFragment extends Fragment {
                         if (!(db.getUsername().equals(usernameBundle))) {
                             if (splitLanguages != null) {
                                 for (int i=0; i<splitLanguages.length; i++) {
-                                    System.out.println("lan" + splitLanguages[i]);
-                                    System.out.println("user " + db.getLanguages());
                                     if (db.getLanguages().toLowerCase().contains(splitLanguages[i])) {
                                         userMatch.add(db);
                                     }
@@ -200,6 +201,34 @@ public class SearchUserFragment extends Fragment {
                 }
             }
         });
+
+        showProfile.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                TextView usernameTextView = (TextView) view.findViewById(R.id.search_profile_username);
+                String usernameMatch = usernameTextView.getText().toString();
+
+                ShowProfile profile = new ShowProfile();
+                Intent intent = new Intent(getActivity(), ShowProfile.class);
+                intent.putExtra("usernameBundle", usernameMatch);
+                startActivity(intent);
+            }
+        });
+
+        dateUser.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                SendRequest profile = new SendRequest();
+                Intent intent = new Intent(getActivity(), SendRequest.class);
+                intent.putExtra("usernameBundle", usernameBundle);
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 
