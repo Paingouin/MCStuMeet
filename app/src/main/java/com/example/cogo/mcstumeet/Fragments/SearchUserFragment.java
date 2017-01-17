@@ -18,7 +18,7 @@ import com.example.cogo.mcstumeet.R;
 import com.example.cogo.mcstumeet.base64.Base;
 import com.example.cogo.mcstumeet.database.DatabaseSchema;
 import com.example.cogo.mcstumeet.database.GetUserAsyncTask;
-import com.example.cogo.mcstumeet.date.TimePicker;
+import com.example.cogo.mcstumeet.date.DateRequest;
 import com.example.cogo.mcstumeet.profile.ShowProfile;
 
 import java.util.ArrayList;
@@ -35,6 +35,7 @@ public class SearchUserFragment extends Fragment {
     private String interestedInBundle, usernameBundle, hobbiesBundle, educationBundle, languageBundle;
     private DatabaseSchema randomUser;
     private GetUserAsyncTask task = new GetUserAsyncTask();
+    private TextView category, usernameTextView;
     private Toast toast;
     private View view;
 
@@ -110,9 +111,10 @@ public class SearchUserFragment extends Fragment {
                 }
                 if(!(userMatch.isEmpty())){
                     searchMatch();
+                    searchCategory("gender");
                 } else {
                     noMatch();
-                    toast.makeText(getActivity(), "No match!", Toast.LENGTH_LONG).show();
+                    searchCategory("gender");
                 }
             }
         });
@@ -133,8 +135,10 @@ public class SearchUserFragment extends Fragment {
                 }
                 if(!(userMatch.isEmpty())){
                     searchMatch();
+                    searchCategory("education");
                 } else {
                     noMatch();
+                    searchCategory("education");
                 }
             }
         });
@@ -161,8 +165,10 @@ public class SearchUserFragment extends Fragment {
                 }
                 if(!(userMatch.isEmpty())){
                     searchMatch();
+                    searchCategory("language");
                 } else {
                     noMatch();
+                    searchCategory("language");
                 }
             }
         });
@@ -190,8 +196,10 @@ public class SearchUserFragment extends Fragment {
                 }
                 if (!(userMatch.isEmpty())) {
                     searchMatch();
+                    searchCategory("hobby");
                 } else {
                     noMatch();
+                    searchCategory("hobby");
                 }
             }
         });
@@ -201,7 +209,7 @@ public class SearchUserFragment extends Fragment {
             @Override
             public void onClick(View v)
             {
-                TextView usernameTextView = (TextView) view.findViewById(R.id.search_profile_username);
+                usernameTextView = (TextView) view.findViewById(R.id.search_profile_username);
                 String usernameMatch = usernameTextView.getText().toString();
 
                 ShowProfile profile = new ShowProfile();
@@ -216,11 +224,11 @@ public class SearchUserFragment extends Fragment {
             @Override
             public void onClick(View v)
             {
-                TextView usernameTextView = (TextView) view.findViewById(R.id.search_profile_username);
+                usernameTextView = (TextView) view.findViewById(R.id.search_profile_username);
                 String usernameMatch = usernameTextView.getText().toString();
 
-                TimePicker profile = new TimePicker();
-                Intent intent = new Intent(getActivity(), TimePicker.class);
+                DateRequest date = new DateRequest();
+                Intent intent = new Intent(getActivity(), DateRequest.class);
                 intent.putExtra("usernameBundle", usernameBundle);
                 intent.putExtra("usernameMatch", usernameMatch);
                 startActivity(intent);
@@ -268,5 +276,10 @@ public class SearchUserFragment extends Fragment {
         randomUser = this.userMatch.get(randomNumber);
 
         return this.randomUser;
+    }
+
+    private void searchCategory(String category){
+        this.category = (TextView) view.findViewById(R.id.search_category);
+        this.category.setText(category);
     }
 }

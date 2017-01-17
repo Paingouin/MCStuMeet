@@ -46,34 +46,55 @@
         </LinearLayout>
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/text_layout"
-                android:layout_marginTop="5dp"
-                android:layout_centerHorizontal="true"
-                android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_layout"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:id="@+id/layout_category">
 
-                <Button
-                    android:id="@+id/gender_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="gender"/>
-                <Button
-                    android:id="@+id/hobbies_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="hobbies"/>
-                <Button
-                    android:id="@+id/education_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="education"/>
-                <Button
-                    android:id="@+id/language_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="language"/>
-            </LinearLayout>
+            <Button
+                android:id="@+id/gender_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="gender"/>
+            <Button
+                android:id="@+id/hobbies_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hobby"/>
+            <Button
+                android:id="@+id/education_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="education"/>
+            <Button
+                android:id="@+id/language_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="language"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:layout_below="@id/layout_category">
+            <TextView
+                style="@style/textStyleBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="You are searching for:"/>
+            <TextView
+                style="@style/textStyleCommon"
+                android:id="@+id/search_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="gender"/>
+        </LinearLayout>
         </RelativeLayout>
         <LinearLayout
             android:layout_width="fill_parent"

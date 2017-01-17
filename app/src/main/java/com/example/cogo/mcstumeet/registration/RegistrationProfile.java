@@ -114,6 +114,7 @@ public class RegistrationProfile extends AppCompatActivity {
         if ((!(hobbies.isEmpty() || languages.isEmpty() || description.isEmpty() || educationItem.equals("Choose your education")))
                 || (!(hobbies.isEmpty() && languages.isEmpty() && description.isEmpty() && educationItem.equals("Choose your education")))) {
             db.username = this.data_username;
+            //db.setUsername(this.data_username)
             db.email = this.data_email;
             db.password = this.data_password;
             db.birthday = this.data_birthday;
