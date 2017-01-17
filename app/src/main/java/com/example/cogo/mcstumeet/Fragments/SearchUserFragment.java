@@ -18,18 +18,12 @@ import com.example.cogo.mcstumeet.R;
 import com.example.cogo.mcstumeet.base64.Base;
 import com.example.cogo.mcstumeet.database.DatabaseSchema;
 import com.example.cogo.mcstumeet.database.GetUserAsyncTask;
-import com.example.cogo.mcstumeet.date.SendRequest;
+import com.example.cogo.mcstumeet.date.TimePicker;
 import com.example.cogo.mcstumeet.profile.ShowProfile;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by Gamze on 22.12.2016.
@@ -222,9 +216,13 @@ public class SearchUserFragment extends Fragment {
             @Override
             public void onClick(View v)
             {
-                SendRequest profile = new SendRequest();
-                Intent intent = new Intent(getActivity(), SendRequest.class);
+                TextView usernameTextView = (TextView) view.findViewById(R.id.search_profile_username);
+                String usernameMatch = usernameTextView.getText().toString();
+
+                TimePicker profile = new TimePicker();
+                Intent intent = new Intent(getActivity(), TimePicker.class);
                 intent.putExtra("usernameBundle", usernameBundle);
+                intent.putExtra("usernameMatch", usernameMatch);
                 startActivity(intent);
             }
         });

@@ -25,7 +25,7 @@
         <activity android:name=".login.LogIn" />
         <activity android:name=".profile.Profile"/>
         <activity android:name=".profile.ShowProfile"/>
-        <activity android:name=".date.SendRequest"/>
+        <activity android:name=".date.TimePicker"/>
         <activity android:name=".registration.RegistrationProfile"/>
     </application>
 
