@@ -39,6 +39,7 @@ public class DateRequestTimer {
                         if(!(myDates.contains(db.getSender()))){
                             myDates.add(db);
                             gotRequest = true;
+                            System.out.println("hallo");
                         }
                     }
                 }

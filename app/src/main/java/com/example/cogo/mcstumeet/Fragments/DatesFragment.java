@@ -36,6 +36,7 @@ public class DatesFragment extends Fragment {
     private Toast toast;
     private int index;
     private ArrayList<DatabaseSchemaDate> myDates = new ArrayList<DatabaseSchemaDate>();
+    private ArrayList<DatabaseSchemaDate> myDatesTemp = new ArrayList<DatabaseSchemaDate>();
 
     @Nullable
     @Override
@@ -43,36 +44,8 @@ public class DatesFragment extends Fragment {
         this.username = this.getArguments().getString("usernameBundle");
         View view = inflater.inflate(R.layout.activity_dates, container, false);
 
-        DateRequestTimer timer = new DateRequestTimer();
-        boolean gotRequest = timer.gotDateRequest(this.username);
-        if(gotRequest){
-            toast.makeText(getActivity(), "You got a date request!", Toast.LENGTH_LONG).show();
-        }
+        this.gotDateRequest(this.username);
 
-        this.sender = (TextView) view.findViewById(R.id.username);
-        this.when = (TextView) view.findViewById(R.id.when_date);
-        this.where = (TextView) view.findViewById(R.id.where_date);
-
-        if(this.sender.getText().equals("Username")){
-        this.sender.setText(this.myDates.get(0).getSender());
-        } else {
-            for(DatabaseSchemaDate db: this.myDates){
-                if(this.sender.equals(db.getSender())){
-                    this.index = this.myDates.indexOf(this.sender);
-                    if(this.index < this.myDates.size()){
-                        this.index++;
-                    } else if(this.index == this.myDates.size()){
-                        this.index = 0;
-                    }
-
-                }
-            }
-            DatabaseSchemaDate date = new DatabaseSchemaDate();
-            date = this.myDates.get(this.index);
-            this.sender.setText(date.getSender());
-            this.when.setText(date.getTime());
-            this.where.setText(date.getLocation());
-        }
         return view;
     }
 
@@ -108,4 +81,44 @@ public class DatesFragment extends Fragment {
         startActivity(intent);
     }
 
+    public void gotDateRequest(final String username){
+        final Handler handler = new Handler();
+        final int delay = 30000;
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                GetRequestAsyncTask task = new GetRequestAsyncTask();
+                try {
+                    requestList = task.execute().get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+                for(DatabaseSchemaDate db: requestList){
+                    if(username.equals(db.getReceiver())){
+                        if(!(myDates.contains(db.getSender()))){
+                            myDates.add(db);
+                            System.out.println("sender " + db.getSender());
+                        }
+                    }
+                }
+                sender = (TextView) getView().findViewById(R.id.username);
+                when = (TextView) getView().findViewById(R.id.when_date);
+                where = (TextView) getView().findViewById(R.id.where_date);
+
+                if(!(myDates.isEmpty())){
+                    System.out.println("db " + myDates.get(0).getSender());
+                    sender.setText(myDates.get(0).getSender());
+                    when.setText(myDates.get(0).getTime());
+                    where.setText(myDates.get(0).getLocation());
+                } else {
+                    System.out.println("hallllloo");
+                    //Ist Leer keine requests
+                }
+                handler.postDelayed(this, delay);
+            }
+        }, delay);
+    }
 }

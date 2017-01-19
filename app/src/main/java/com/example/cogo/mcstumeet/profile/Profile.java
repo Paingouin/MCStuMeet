@@ -43,7 +43,7 @@ public class Profile extends AppCompatActivity {
         DateRequestTimer timer = new DateRequestTimer();
         boolean gotRequest = timer.gotDateRequest(username);
         if(gotRequest){
-            toast.makeText(this, "You got a date request!", Toast.LENGTH_LONG).show();
+            toast.makeText(this, "Don't forget to check your requests!", Toast.LENGTH_LONG).show();
         }
 
         this.profile = new UsersProfileFragment();
