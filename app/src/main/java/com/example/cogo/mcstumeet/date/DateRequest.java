@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -61,7 +62,6 @@ public class DateRequest extends AppCompatActivity {
             public void onClick(View view) {
                 updateDate();
             }
-
         });
 
         pickTimeButton.setOnClickListener(new View.OnClickListener(){

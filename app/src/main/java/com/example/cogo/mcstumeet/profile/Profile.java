@@ -1,9 +1,12 @@
 package com.example.cogo.mcstumeet.profile;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.cogo.mcstumeet.R;
+import com.example.cogo.mcstumeet.date.DateRequestTimer;
 import com.example.cogo.mcstumeet.fragments.DatesFragment;
 import com.example.cogo.mcstumeet.fragments.SearchUserFragment;
 import com.example.cogo.mcstumeet.fragments.UsersProfileFragment;
@@ -14,6 +17,7 @@ import com.roughike.bottombar.OnMenuTabSelectedListener;
 public class Profile extends AppCompatActivity {
     public BottomBar bottomBar;
     public UsersProfileFragment profile;
+    private Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,12 @@ public class Profile extends AppCompatActivity {
         newBundleUserInformation.putString("interestedInBundle", interested_in);
         newBundleUserInformation.putString("languagesBundle", languages);
 
+        DateRequestTimer timer = new DateRequestTimer();
+        boolean gotRequest = timer.gotDateRequest(username);
+        if(gotRequest){
+            toast.makeText(this, "You got a date request!", Toast.LENGTH_LONG).show();
+        }
+
         this.profile = new UsersProfileFragment();
         this.profile.setArguments(newBundleUserInformation);
 
@@ -53,6 +63,7 @@ public class Profile extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame, search).commit();
                 } else if(itemId == R.id.dates_bottombar){
                     DatesFragment dates = new DatesFragment();
+                    dates.setArguments(newBundleUserInformation);
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame, dates).commit();
                 }
             }

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
 import android.net.Uri;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,11 +16,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cogo.mcstumeet.R;
 import com.example.cogo.mcstumeet.base64.Base;
 import com.example.cogo.mcstumeet.database.DatabaseSchema;
 import com.example.cogo.mcstumeet.database.GetUserAsyncTask;
+import com.example.cogo.mcstumeet.database_date.DatabaseSchemaDate;
+import com.example.cogo.mcstumeet.database_date.GetRequestAsyncTask;
+import com.example.cogo.mcstumeet.date.DateRequestTimer;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -36,6 +41,7 @@ import java.util.concurrent.ExecutionException;
 public class UsersProfileFragment extends Fragment {
     private ArrayList<DatabaseSchema> returnValues = new ArrayList<DatabaseSchema>();
     private ArrayList<String> listItems = new ArrayList<String>();
+    private Toast toast;
 
     private TextView text_username, text_birthday, text_interests, text_education, text_language, text_hobby, text_des;
     private ImageView imageView;
@@ -45,6 +51,7 @@ public class UsersProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         String usernameBundle = this.getArguments().getString("usernameBundle");
         View view = inflater.inflate(R.layout.activity_users_profile, container, false);
+
         GetUserAsyncTask task = new GetUserAsyncTask();
         try {
             this.returnValues = task.execute().get();
@@ -78,6 +85,8 @@ public class UsersProfileFragment extends Fragment {
                 imageView.setImageBitmap(bit);
             }
         }
+
         return view;
     }
+
 }

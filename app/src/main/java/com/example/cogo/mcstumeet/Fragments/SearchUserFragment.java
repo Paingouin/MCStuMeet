@@ -1,6 +1,7 @@
 package com.example.cogo.mcstumeet.fragments;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -18,7 +19,10 @@ import com.example.cogo.mcstumeet.R;
 import com.example.cogo.mcstumeet.base64.Base;
 import com.example.cogo.mcstumeet.database.DatabaseSchema;
 import com.example.cogo.mcstumeet.database.GetUserAsyncTask;
+import com.example.cogo.mcstumeet.database_date.DatabaseSchemaDate;
+import com.example.cogo.mcstumeet.database_date.GetRequestAsyncTask;
 import com.example.cogo.mcstumeet.date.DateRequest;
+import com.example.cogo.mcstumeet.date.DateRequestTimer;
 import com.example.cogo.mcstumeet.profile.ShowProfile;
 
 import java.util.ArrayList;
@@ -260,7 +264,7 @@ public class SearchUserFragment extends Fragment {
     }
 
     private void noMatch(){
-        toast.makeText(getActivity(), "We are sorry, but there is no match!", Toast.LENGTH_LONG).show();
+        this.toast.makeText(getActivity(), "We are sorry, but there is no match!", Toast.LENGTH_LONG).show();
         TextView usernameNoMatch = (TextView) this.view.findViewById(R.id.search_profile_username);
         TextView educationNoMatch = (TextView) this.view.findViewById(R.id.search_profile_education_text);
         ImageView imageNoMatch = (ImageView) this.view.findViewById(R.id.user_profile_photo);
