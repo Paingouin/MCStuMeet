@@ -114,12 +114,16 @@ public class DateRequest extends AppCompatActivity {
         this.locationMan = this.locationManually.getText().toString();
 
         if(this.location.getSelectedItem().toString() != "Locations"){
-            if(this.locationMan == " "){
+            if(this.locationMan == "-"){
+                this.locationItem = this.location.getSelectedItem().toString();
+            } else if(this.locationMan != "-"){
                 this.locationItem = this.location.getSelectedItem().toString();
             }
         } else {
-            if(this.locationMan != " "){
+            if(this.locationMan != "-"){
                 this.locationItem = this.locationMan;
+            } else if(this.locationMan == "-"){
+                this.toast.makeText(this, "Please choose a location!", Toast.LENGTH_SHORT).show();
             }
         }
         this.time = this.textTimeTextView.getText().toString();

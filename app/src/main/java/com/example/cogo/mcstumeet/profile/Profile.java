@@ -108,7 +108,14 @@ public class Profile extends AppCompatActivity {
                 }
                 for(DatabaseSchemaResponse db: requestListResponse){
                     if(username.equals(db.getSender())){
-                        toast.makeText(getApplicationContext(), db.getReceiver() + " accepted your date request!", Toast.LENGTH_SHORT).show();
+                        if(db.getAccepted() == "true"){
+                            myDates.remove(db);
+                            toast.makeText(getApplicationContext(), db.getReceiver() + " accepted your date request!", Toast.LENGTH_SHORT).show();
+                        } else if(db.getAccepted() == "false"){
+                            myDates.remove(db);
+                            toast.makeText(getApplicationContext(), db.getReceiver() + " declined your date request!", Toast.LENGTH_SHORT).show();
+                        }
+
                         DeleteResponseAsyncTask deleteResponse = new DeleteResponseAsyncTask();
                         deleteResponse.execute(db);
                     }

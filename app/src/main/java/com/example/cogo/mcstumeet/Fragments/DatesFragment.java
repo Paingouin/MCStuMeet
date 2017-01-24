@@ -132,7 +132,7 @@ public class DatesFragment extends Fragment {
                 for(DatabaseSchemaDate db: myDates){
                     if(sender.getText().toString().equals(db.getSender())){
                         DatabaseSchemaResponse dbResponse = new DatabaseSchemaResponse();
-                        dbResponse.setAccepted("declined");
+                        dbResponse.setAccepted("false");
                         dbResponse.setSender(sender.getText().toString());
                         dbResponse.setReceiver(username);
                         SaveResponseAsyncTask responeTask = new SaveResponseAsyncTask();
