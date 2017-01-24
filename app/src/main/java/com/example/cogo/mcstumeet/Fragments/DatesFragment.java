@@ -111,19 +111,22 @@ public class DatesFragment extends Fragment {
                     if(sender.getText().toString().equals(db.getSender())){
                         DatabaseSchemaResponse dbResponse = new DatabaseSchemaResponse();
                         dbResponse.setAccepted("true");
-                        System.out.println("accepted: " + dbResponse.getAccepted());
                         dbResponse.setSender(sender.getText().toString());
                         dbResponse.setReceiver(username);
                         SaveResponseAsyncTask responseTask = new SaveResponseAsyncTask();
+                        System.out.println("response " + responseTask);
                         responseTask.execute(dbResponse);
 
                         DeleteUserAsyncTask task = new DeleteUserAsyncTask();
                         task.execute(db);
+
+                        myDates.remove(db);
                         refresh();
                     }
                 }
             }
         });
+
         this.decline.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -135,11 +138,13 @@ public class DatesFragment extends Fragment {
                         dbResponse.setAccepted("false");
                         dbResponse.setSender(sender.getText().toString());
                         dbResponse.setReceiver(username);
-                        SaveResponseAsyncTask responeTask = new SaveResponseAsyncTask();
-                        responeTask.execute(dbResponse);
+                        SaveResponseAsyncTask responseTask = new SaveResponseAsyncTask();
+                        responseTask.execute(dbResponse);
 
                         DeleteUserAsyncTask task = new DeleteUserAsyncTask();
                         task.execute(db);
+
+                        myDates.remove(db);
                         refresh();
                     }
                 }
