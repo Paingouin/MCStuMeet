@@ -114,7 +114,6 @@ public class DatesFragment extends Fragment {
                         dbResponse.setSender(sender.getText().toString());
                         dbResponse.setReceiver(username);
                         SaveResponseAsyncTask responseTask = new SaveResponseAsyncTask();
-                        System.out.println("response " + responseTask);
                         responseTask.execute(dbResponse);
 
                         DeleteUserAsyncTask task = new DeleteUserAsyncTask();

@@ -20,7 +20,7 @@
                 android:layout_marginLeft="10dp"
                 android:padding="20dp"
                 android:textColor="#FFF"
-                android:text="Send a request..."
+                android:text="Send a date request..."
                 android:id="@+id/textView2" />
         </RelativeLayout>
         <RelativeLayout
