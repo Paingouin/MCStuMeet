@@ -51,14 +51,14 @@
     </string-array>
 
     <string-array name="location_array">
-        <item>Choose a location</item>
-        <item>Cineplex Planie, Gartenstraße 51 72764 Reutlingen</item>
-        <item>Campus Kebap, Pestalozzistraße 7 72764 Reutlingen</item>
-        <item>Studentenbar CaRe e.V., Alteburgstraße 150 72764 Reutlingen</item>
-        <item>Mauritius, Kaiserpassage 6 72764 Reutlingen</item>
-        <item>Mezcalitos Restaurant, Obere Wässere 1 72764 Reutlingen</item>
-        <item>Mensa Hochschule, Alteburgstraße 150 72764 Reutlingen</item>
-        <item>ShooterStars Reutlingen, Gartenstraße 49, 72764 Reutlingen</item>
+        <item>Locations</item>
+        <item>Cineplex Planie, Gartenstrasse 51 Reutlingen</item>
+        <item>Campus Kebap, Pestalozzistrasse 7 Reutlingen</item>
+        <item>Studentenbar CaRe e.V., Alteburgstrasse 150 Reutlingen</item>
+        <item>Mauritius, Kaiserpassage 6 Reutlingen</item>
+        <item>Mezcalitos Restaurant, Obere Waessere 1 Reutlingen</item>
+        <item>Mensa Hochschule, Alteburgstrasse 150 Reutlingen</item>
+        <item>ShooterStars Reutlingen, Gartenstrasse 49 Reutlingen</item>
     </string-array>
 
     <string name ="search">Search for username</string>

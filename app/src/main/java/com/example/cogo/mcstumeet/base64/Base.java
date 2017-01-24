@@ -6,10 +6,6 @@ import android.util.Base64;
 
 import java.io.ByteArrayOutputStream;
 
-/**
- * Created by Gamze on 08.01.2017.
- */
-
 public class Base {
 
     public Bitmap convertStringToBitmap(String dbImage){

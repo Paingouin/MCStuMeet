@@ -2,18 +2,13 @@ package com.example.cogo.mcstumeet.fragments;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
-import android.net.Uri;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,21 +17,10 @@ import com.example.cogo.mcstumeet.R;
 import com.example.cogo.mcstumeet.base64.Base;
 import com.example.cogo.mcstumeet.database.DatabaseSchema;
 import com.example.cogo.mcstumeet.database.GetUserAsyncTask;
-import com.example.cogo.mcstumeet.database_date.DatabaseSchemaDate;
-import com.example.cogo.mcstumeet.database_date.GetRequestAsyncTask;
-import com.example.cogo.mcstumeet.date.DateRequestTimer;
+import com.example.cogo.mcstumeet.registration.RegistrationGender;
 
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
-
-/**
- * Created by Gamze on 22.12.2016.
- */
 
 public class UsersProfileFragment extends Fragment {
     private ArrayList<DatabaseSchema> returnValues = new ArrayList<DatabaseSchema>();
@@ -45,6 +29,7 @@ public class UsersProfileFragment extends Fragment {
 
     private TextView text_username, text_birthday, text_interests, text_education, text_language, text_hobby, text_des;
     private ImageView imageView;
+    private ImageButton logout;
 
     @Nullable
     @Override
@@ -69,6 +54,7 @@ public class UsersProfileFragment extends Fragment {
         this.text_hobby = (TextView) view.findViewById(R.id.user_profile_hobbies_text);
         this.text_des = (TextView) view.findViewById(R.id.user_profile_short_description_text);
         this.imageView = (ImageView) view.findViewById(R.id.user_profile_photo);
+        this.logout = (ImageButton) view.findViewById(R.id.logout_image);
 
         for(DatabaseSchema db : returnValues) {
             if (usernameBundle.contains(db.getUsername())) {
@@ -85,8 +71,15 @@ public class UsersProfileFragment extends Fragment {
                 imageView.setImageBitmap(bit);
             }
         }
-
+        this.logout.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), RegistrationGender.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
-
 }

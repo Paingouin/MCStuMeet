@@ -1,16 +1,16 @@
 package com.example.cogo.mcstumeet.date;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.icu.text.DateFormat;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.ImageButton;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,14 +19,13 @@ import com.example.cogo.mcstumeet.R;
 import com.example.cogo.mcstumeet.database_date.DatabaseSchemaDate;
 import com.example.cogo.mcstumeet.database_date.GetRequestAsyncTask;
 import com.example.cogo.mcstumeet.database_date.SaveRequestAsyncTask;
+import com.example.cogo.mcstumeet.fragments.SearchUserFragment;
+import com.example.cogo.mcstumeet.fragments.UsersProfileFragment;
+import com.example.cogo.mcstumeet.profile.Profile;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.concurrent.ExecutionException;
-
-/**
- * Created by Gamze on 17.01.2017.
- */
 
 @TargetApi(25)
 public class DateRequest extends AppCompatActivity {
@@ -36,8 +35,9 @@ public class DateRequest extends AppCompatActivity {
     private Spinner location;
     private Toast toast;
     private boolean alreadyHasADate = false;
-    private String locationItem, receiver, time, sender;
+    private String locationItem, receiver, time, sender, locationMan;
     private TextView textTimeTextView, showUsername;
+    private EditText locationManually;
     private Button pickDateButton, pickTimeButton, sendButton;
     private ArrayList<DatabaseSchemaDate> dateList = new ArrayList<DatabaseSchemaDate>();
 
@@ -110,7 +110,18 @@ public class DateRequest extends AppCompatActivity {
 
     public void passData(View view){
         this.sendButton = (Button) findViewById(R.id.send_request_button);
-        this.locationItem = this.location.getSelectedItem().toString();
+        this.locationManually = (EditText) findViewById(R.id.location_manually);
+        this.locationMan = this.locationManually.getText().toString();
+
+        if(this.location.getSelectedItem().toString() != "Locations"){
+            if(this.locationMan == " "){
+                this.locationItem = this.location.getSelectedItem().toString();
+            }
+        } else {
+            if(this.locationMan != " "){
+                this.locationItem = this.locationMan;
+            }
+        }
         this.time = this.textTimeTextView.getText().toString();
 
         GetRequestAsyncTask getData = new GetRequestAsyncTask();
@@ -127,18 +138,19 @@ public class DateRequest extends AppCompatActivity {
                 this.alreadyHasADate = true;
             }
         }
-
         if(this.alreadyHasADate == false) {
+            db.setDoc_id("0");
             db.setSender(this.sender);
             db.setReceiver(this.receiver);
             db.setTime(this.time);
             db.setLocation(this.locationItem);
-            db.setAccepted("false");
 
             SaveRequestAsyncTask task = new SaveRequestAsyncTask();
             task.execute(db);
+
+            this.toast.makeText(this, "You have sent a date to " + this.receiver + " successfully!", Toast.LENGTH_SHORT).show();
         } else {
-            this.toast.makeText(this, "You have sent a date to " + this.receiver + "already!", Toast.LENGTH_SHORT).show();
+            this.toast.makeText(this, "You have sent a date to " + this.receiver + " already!", Toast.LENGTH_SHORT).show();
         }
     }
 

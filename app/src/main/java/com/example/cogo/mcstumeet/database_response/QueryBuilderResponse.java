@@ -1,6 +1,9 @@
-package com.example.cogo.mcstumeet.database_date;
+package com.example.cogo.mcstumeet.database_response;
 
-public class QueryBuilderDate {
+
+import com.example.cogo.mcstumeet.database_date.DatabaseSchemaDate;
+
+public class QueryBuilderResponse {
     public String getDatabaseName() {
         return "stumeetmc";
     }
@@ -26,7 +29,7 @@ public class QueryBuilderDate {
 
     public String documentRequest()
     {
-        return "request";
+        return "responseDate";
     }
 
     public String buildContactsSaveURL()
@@ -44,11 +47,11 @@ public class QueryBuilderDate {
         return getBaseUrl()+documentRequest()+docApiKeyUrl(doc_id);
     }
 
-    public String createRequest(DatabaseSchemaDate request)
+    public String createResponse(DatabaseSchemaResponse request)
     {
         return String
                 .format("{\"sender\": \"%s\", \"receiver\": \"%s\", "
-                                + "\"time\": \"%s\", \"location\" : \"%s\"}, \"safe\" : true}",
-                        request.sender, request.receiver, request.time, request.location);
+                                + "\"accepted\" : \"%s\"}, \"safe\" : true}",
+                        request.sender, request.receiver, request.accepted);
     }
 }

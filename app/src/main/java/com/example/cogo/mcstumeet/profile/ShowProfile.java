@@ -14,10 +14,6 @@ import com.example.cogo.mcstumeet.database.GetUserAsyncTask;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
-/**
- * Created by Gamze on 03.01.2017.
- */
-
 public class ShowProfile extends AppCompatActivity {
     private ArrayList<DatabaseSchema> returnValues = new ArrayList<DatabaseSchema>();
     private ArrayList<String> listItems = new ArrayList<String>();

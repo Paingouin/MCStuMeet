@@ -66,8 +66,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingBottom="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="15dp"
                     android:id="@+id/username_layout"
                     android:orientation="horizontal">
                     <TextView
@@ -90,7 +88,6 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
                         android:orientation="horizontal">
                         <TextView
                             style="@style/textStyleCommon"
@@ -113,7 +110,6 @@
                         android:orientation="horizontal">
                         <TextView
                             style="@style/textStyleCommon"
-                            android:layout_marginLeft="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Where:"
@@ -130,7 +126,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="125dp"
+                    android:layout_marginTop="145dp"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@+id/user_profile_photo"
                     android:orientation="horizontal">
@@ -170,7 +166,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAlignment="center"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="30dp"
                         android:layout_marginTop="10dp"
                         android:orientation="horizontal">
                         <ImageButton
@@ -181,7 +177,7 @@
                             android:paddingLeft="60dp"
                             android:paddingRight="60dp"
                             app:srcCompat="@drawable/check"
-                            android:id="@+id/imageButton6" />
+                            android:id="@+id/accept_icon" />
                         <ImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -190,7 +186,7 @@
                             android:paddingLeft="60dp"
                             android:paddingRight="60dp"
                             app:srcCompat="@drawable/cross"
-                            android:id="@+id/imageButton5" />
+                            android:id="@+id/decline_icon" />
                     </LinearLayout>
                 </LinearLayout>
             </RelativeLayout>

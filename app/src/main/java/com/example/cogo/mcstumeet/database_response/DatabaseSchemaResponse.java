@@ -1,7 +1,7 @@
-package com.example.cogo.mcstumeet.database_date;
+package com.example.cogo.mcstumeet.database_response;
 
-public class DatabaseSchemaDate {
-    public String doc_id, sender, receiver, time, location;
+public class DatabaseSchemaResponse {
+    public String doc_id, sender, receiver, accepted;
 
     public void setDoc_id(String doc_id){
         this.doc_id = doc_id;
@@ -15,12 +15,8 @@ public class DatabaseSchemaDate {
         this.receiver = username;
     }
 
-    public void setTime(String time){
-        this.time = time;
-    }
-
-    public void setLocation(String location){
-        this.location = location;
+    public void setAccepted(String accepted){
+        this.accepted = accepted;
     }
 
     public String getSender() {
@@ -31,12 +27,8 @@ public class DatabaseSchemaDate {
         return receiver;
     }
 
-    public String getTime() {
-        return time;
-    }
-
-    public String getLocation() {
-        return location;
+    public String getAccepted() {
+        return accepted;
     }
 
     public String getDoc_id(){

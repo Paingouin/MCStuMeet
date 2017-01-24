@@ -1,22 +1,16 @@
 package com.example.cogo.mcstumeet.database;
 
-import android.graphics.Bitmap;
 import android.os.AsyncTask;
+
+import com.mongodb.BasicDBList;
+import com.mongodb.DBObject;
+import com.mongodb.util.JSON;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-
-import com.mongodb.BasicDBList;
-import com.mongodb.BasicDBObject;
-import com.mongodb.DBObject;
-import com.mongodb.util.JSON;
-
-/**
- * Created by Gamze on 03.01.2017.
- */
 
 public class GetUserAsyncTask extends AsyncTask<DatabaseSchema, Void, ArrayList<DatabaseSchema>> {
     private static String server_output = null;
@@ -53,7 +47,6 @@ public class GetUserAsyncTask extends AsyncTask<DatabaseSchema, Void, ArrayList<
 
                 temp.setUsername(userObj.get("username").toString());
                 temp.setBirthday(userObj.get("birthday").toString());
-                temp.setDates(userObj.get("dates").toString());
                 temp.setEmail(userObj.get("email").toString());
                 temp.setDescription(userObj.get("description").toString());
                 temp.setEducation(userObj.get("education").toString());
@@ -62,9 +55,7 @@ public class GetUserAsyncTask extends AsyncTask<DatabaseSchema, Void, ArrayList<
                 temp.setImage(userObj.get("image").toString());
                 temp.setInterests(userObj.get("interests").toString());
                 temp.setLanguages(userObj.get("languages").toString());
-                temp.setNumberOfDates(userObj.get("email").toString());
                 temp.setPassword(userObj.get("password").toString());
-                temp.setUploadedImages(userObj.get("uploadedImages").toString());
 
                 this.user.add(temp);
             }

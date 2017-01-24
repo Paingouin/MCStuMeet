@@ -7,10 +7,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import android.os.AsyncTask;
 
-/**
- * Created by Gamze on 02.01.2017.
- */
-
 public class SaveAsyncTask extends AsyncTask<DatabaseSchema, Void, Boolean> {
 
     @Override
@@ -28,7 +24,7 @@ public class SaveAsyncTask extends AsyncTask<DatabaseSchema, Void, Boolean> {
             request.setEntity(params);
             HttpResponse response = httpClient.execute(request);
 
-            if(response.getStatusLine().getStatusCode()<205)
+            if(response.getStatusLine().getStatusCode() < 205)
             {
                 return true;
             }

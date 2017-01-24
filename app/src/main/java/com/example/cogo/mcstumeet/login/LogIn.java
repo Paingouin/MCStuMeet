@@ -75,7 +75,7 @@ public class LogIn extends AppCompatActivity {
                 }
             }
         }
-        if(usernameCorrect || passwordCorrect){
+        if(usernameCorrect && passwordCorrect){
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         } else {
@@ -83,8 +83,8 @@ public class LogIn extends AppCompatActivity {
         }
     }
 
-    // ?
     public void forgotPwd(View view){
         Button forgotPwd = (Button)findViewById(R.id.forgot_pwd_button);
+        this.toast.makeText(this, "We are sorry, there is no function yet!", Toast.LENGTH_SHORT).show();
     }
 }

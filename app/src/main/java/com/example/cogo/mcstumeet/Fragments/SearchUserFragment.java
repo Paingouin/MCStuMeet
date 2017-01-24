@@ -1,7 +1,6 @@
 package com.example.cogo.mcstumeet.fragments;
 
 import android.content.Intent;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -19,19 +18,12 @@ import com.example.cogo.mcstumeet.R;
 import com.example.cogo.mcstumeet.base64.Base;
 import com.example.cogo.mcstumeet.database.DatabaseSchema;
 import com.example.cogo.mcstumeet.database.GetUserAsyncTask;
-import com.example.cogo.mcstumeet.database_date.DatabaseSchemaDate;
-import com.example.cogo.mcstumeet.database_date.GetRequestAsyncTask;
 import com.example.cogo.mcstumeet.date.DateRequest;
-import com.example.cogo.mcstumeet.date.DateRequestTimer;
 import com.example.cogo.mcstumeet.profile.ShowProfile;
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
-
-/**
- * Created by Gamze on 22.12.2016.
- */
 
 public class SearchUserFragment extends Fragment {
     private ArrayList<DatabaseSchema> returnValues = new ArrayList<DatabaseSchema>();
@@ -100,7 +92,6 @@ public class SearchUserFragment extends Fragment {
                 }
             }
         });
-
         gender.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -122,7 +113,6 @@ public class SearchUserFragment extends Fragment {
                 }
             }
         });
-
         education.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -146,7 +136,6 @@ public class SearchUserFragment extends Fragment {
                 }
             }
         });
-
         language.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -176,7 +165,6 @@ public class SearchUserFragment extends Fragment {
                 }
             }
         });
-
         hobbies.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -207,7 +195,6 @@ public class SearchUserFragment extends Fragment {
                 }
             }
         });
-
         showProfile.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -222,7 +209,6 @@ public class SearchUserFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
         dateUser.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -238,7 +224,6 @@ public class SearchUserFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
         return view;
     }
 
@@ -259,11 +244,11 @@ public class SearchUserFragment extends Fragment {
             String education_random = tempUser.getEducation();
             education.setText(education_random);
         } else if(this.userMatch.isEmpty()) {
-
+            noMatch();
         }
     }
 
-    private void noMatch(){
+    protected void noMatch(){
         this.toast.makeText(getActivity(), "We are sorry, but there is no match!", Toast.LENGTH_LONG).show();
         TextView usernameNoMatch = (TextView) this.view.findViewById(R.id.search_profile_username);
         TextView educationNoMatch = (TextView) this.view.findViewById(R.id.search_profile_education_text);

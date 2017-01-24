@@ -1,9 +1,9 @@
-package com.example.cogo.mcstumeet.database_date;
+package com.example.cogo.mcstumeet.database_response;
 
 import android.os.AsyncTask;
 
-import com.example.cogo.mcstumeet.database.DatabaseSchema;
-import com.example.cogo.mcstumeet.database.QueryBuilder;
+import com.example.cogo.mcstumeet.database_date.DatabaseSchemaDate;
+import com.example.cogo.mcstumeet.database_date.QueryBuilderDate;
 import com.mongodb.BasicDBList;
 import com.mongodb.DBObject;
 import com.mongodb.util.JSON;
@@ -14,15 +14,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class GetRequestAsyncTask extends AsyncTask<DatabaseSchemaDate, Void, ArrayList<DatabaseSchemaDate>> {
+public class GetResponseAsyncTask extends AsyncTask<DatabaseSchemaResponse, Void, ArrayList<DatabaseSchemaResponse>> {
     private static String server_output = null;
     private static String temp_output = null;
-    public ArrayList<DatabaseSchemaDate> request = new ArrayList<DatabaseSchemaDate>();
+    public ArrayList<DatabaseSchemaResponse> request = new ArrayList<DatabaseSchemaResponse>();
 
     @Override
-    protected ArrayList<DatabaseSchemaDate> doInBackground(DatabaseSchemaDate... arg0) {
+    protected ArrayList<DatabaseSchemaResponse> doInBackground(DatabaseSchemaResponse... arg0) {
         try {
-            QueryBuilderDate qb = new QueryBuilderDate();
+            QueryBuilderResponse qb = new QueryBuilderResponse();
             URL url = new URL(qb.buildContactsGetURL());
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
@@ -45,13 +45,12 @@ public class GetRequestAsyncTask extends AsyncTask<DatabaseSchemaDate, Void, Arr
 
         for(int i=0; i<requestList.size(); i++){
             DBObject requestObj = (DBObject) requestList.get(i);
-            DatabaseSchemaDate temp = new DatabaseSchemaDate();
+            DatabaseSchemaResponse temp = new DatabaseSchemaResponse();
 
             temp.setDoc_id(requestObj.get("_id").toString());
             temp.setSender(requestObj.get("sender").toString());
             temp.setReceiver(requestObj.get("receiver").toString());
-            temp.setTime(requestObj.get("time").toString());
-            temp.setLocation(requestObj.get("location").toString());
+            temp.setAccepted(requestObj.get("accepted").toString());
 
             this.request.add(temp);
         }

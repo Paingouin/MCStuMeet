@@ -1,11 +1,5 @@
 package com.example.cogo.mcstumeet.database;
 
-import android.graphics.Bitmap;
-
-/**
- * Created by Gamze on 02.01.2017.
- */
-
 public class DatabaseSchema {
     public String username;
     public String email;
@@ -18,9 +12,6 @@ public class DatabaseSchema {
     public String hobbies;
     public String education;
     public String languages;
-    public String uploadedImages;
-    public String numberOfDates;
-    public String dates;
 
     public void setUsername(String username) {
         this.username = username;
@@ -66,18 +57,6 @@ public class DatabaseSchema {
         this.languages = languages;
     }
 
-    public void setUploadedImages(String uploadedImages){
-        this.uploadedImages = uploadedImages;
-    }
-
-    public void setNumberOfDates(String numberOfDates){
-        this.numberOfDates = numberOfDates;
-    }
-
-    public void setDates(String dates){
-        this.dates = dates;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -120,17 +99,5 @@ public class DatabaseSchema {
 
     public String getLanguages() {
         return languages;
-    }
-
-    public String getUploadedImages() {
-        return uploadedImages;
-    }
-
-    public String getDates() {
-        return dates;
-    }
-
-    public String getNumberOfDates(){
-        return numberOfDates;
     }
 }

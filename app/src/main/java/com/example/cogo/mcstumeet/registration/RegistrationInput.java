@@ -11,10 +11,8 @@ import android.widget.Toast;
 import com.example.cogo.mcstumeet.R;
 import com.example.cogo.mcstumeet.database.DatabaseSchema;
 import com.example.cogo.mcstumeet.database.GetUserAsyncTask;
-import com.example.cogo.mcstumeet.database.SaveAsyncTask;
 import com.example.cogo.mcstumeet.security.Encryption;
 
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 public class RegistrationInput extends AppCompatActivity {
