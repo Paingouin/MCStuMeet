@@ -1,4 +1,4 @@
-package com.example.cogo.mcstumeet.fragments;
+package com.example.cogo.mcstumeet.Fragments;
 
 import android.content.Intent;
 import android.graphics.Bitmap;

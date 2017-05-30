@@ -11,9 +11,9 @@ import com.example.cogo.mcstumeet.database_date.GetRequestAsyncTask;
 import com.example.cogo.mcstumeet.database_response.DatabaseSchemaResponse;
 import com.example.cogo.mcstumeet.database_response.DeleteResponseAsyncTask;
 import com.example.cogo.mcstumeet.database_response.GetResponseAsyncTask;
-import com.example.cogo.mcstumeet.fragments.DatesFragment;
-import com.example.cogo.mcstumeet.fragments.SearchUserFragment;
-import com.example.cogo.mcstumeet.fragments.UsersProfileFragment;
+import com.example.cogo.mcstumeet.Fragments.DatesFragment;
+import com.example.cogo.mcstumeet.Fragments.SearchUserFragment;
+import com.example.cogo.mcstumeet.Fragments.UsersProfileFragment;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
 

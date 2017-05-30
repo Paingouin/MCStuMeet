@@ -19,8 +19,8 @@ import com.example.cogo.mcstumeet.R;
 import com.example.cogo.mcstumeet.database_date.DatabaseSchemaDate;
 import com.example.cogo.mcstumeet.database_date.GetRequestAsyncTask;
 import com.example.cogo.mcstumeet.database_date.SaveRequestAsyncTask;
-import com.example.cogo.mcstumeet.fragments.SearchUserFragment;
-import com.example.cogo.mcstumeet.fragments.UsersProfileFragment;
+import com.example.cogo.mcstumeet.Fragments.SearchUserFragment;
+import com.example.cogo.mcstumeet.Fragments.UsersProfileFragment;
 import com.example.cogo.mcstumeet.profile.Profile;
 
 import java.util.ArrayList;
