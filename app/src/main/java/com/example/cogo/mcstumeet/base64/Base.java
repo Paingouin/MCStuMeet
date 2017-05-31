@@ -16,7 +16,7 @@ public class Base {
         return bitmap;
     }
 
-//test Ben k
+//test Ben kmjuhji
 
 
     public String convertBitmapToString(Bitmap bitmap){
