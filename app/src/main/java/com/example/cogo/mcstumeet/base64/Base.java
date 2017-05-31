@@ -7,7 +7,7 @@ import android.util.Base64;
 import java.io.ByteArrayOutputStream;
 
 public class Base {
-
+    //test
     public Bitmap convertStringToBitmap(String dbImage){
 
         //NOTE(jordan)  :test
