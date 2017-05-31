@@ -38,6 +38,7 @@ public class GetRequestAsyncTask extends AsyncTask<DatabaseSchemaDate, Void, Arr
         } catch (Exception e) {
             e.getMessage();
         }
+
         String mongoarray = "{list: " + server_output + "}";
         Object o = JSON.parse(mongoarray);
         DBObject dbObj = (DBObject) o;
