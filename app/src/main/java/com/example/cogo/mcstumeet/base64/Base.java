@@ -9,7 +9,6 @@ import java.io.ByteArrayOutputStream;
 public class Base {
     //test
     public Bitmap convertStringToBitmap(String dbImage){
-        int j;
         byte [] encodeByte= Base64.decode(dbImage,Base64.DEFAULT);
         Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
         return bitmap;
