@@ -84,6 +84,21 @@ public class LogIn extends AppCompatActivity {
     }
 
     public void forgotPwd(View view){
+
+        /*TODO (Lex):
+        * when you clic on this button,
+        * you have a new screen where you can see a label "enter your E-mail"
+        * (IF exist), when the E-mail is verified,
+        * the application send you an E-mail with the login and password associated with the E-mail,
+        * and toast the application with an hint "you can see your password in your E-mail",
+        *
+        * (IF not), when the E-mail don't exist,
+        * toast on appli "this E-mail doesn't exist"
+        *
+        * (IF the splitEmail is wrong), when you don't enter the suffixe "students.reutlingen-university.de",
+        * toast on appli "use your university E-mail"
+        *
+        * */
         Button forgotPwd = (Button)findViewById(R.id.forgot_pwd_button);
         this.toast.makeText(this, "We are sorry, there is no function yet!", Toast.LENGTH_SHORT).show();
     }
