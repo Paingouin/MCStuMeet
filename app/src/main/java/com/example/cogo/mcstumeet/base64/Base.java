@@ -7,18 +7,14 @@ import android.util.Base64;
 import java.io.ByteArrayOutputStream;
 
 public class Base {
-    //test
-    public Bitmap convertStringToBitmap(String dbImage){
 
-        //NOTE(jordan)  :  test
+    
+    public Bitmap convertStringToBitmap(String dbImage){
         byte[] encodeByte= Base64.decode(dbImage,Base64.DEFAULT);
         Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
         return bitmap;
     }
 
-//test Ben kmjuhji
-
-//NOTE(Lex) : cette note est inutile
     public String convertBitmapToString(Bitmap bitmap){
         ByteArrayOutputStream baos = new  ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);

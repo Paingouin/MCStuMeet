@@ -16,6 +16,7 @@ import com.example.cogo.mcstumeet.security.Encryption;
 import java.util.ArrayList;
 
 public class RegistrationInput extends AppCompatActivity {
+
     private Toast toast;
     private Encryption encryption = new Encryption();
     private ArrayList<DatabaseSchema> returnValues = new ArrayList<DatabaseSchema>();
