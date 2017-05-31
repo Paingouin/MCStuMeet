@@ -10,7 +10,7 @@ public class Base {
     //test
     public Bitmap convertStringToBitmap(String dbImage){
 
-        //NOTE(jordan)  :test
+        //NOTE(jordan)  :  test
         byte[] encodeByte= Base64.decode(dbImage,Base64.DEFAULT);
         Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
         return bitmap;
