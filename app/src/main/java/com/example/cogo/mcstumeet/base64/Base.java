@@ -18,7 +18,7 @@ public class Base {
 
 //test Ben kmjuhji
 
-
+//NOTE(Lex) : cette note est inutile
     public String convertBitmapToString(Bitmap bitmap){
         ByteArrayOutputStream baos = new  ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,100, baos);
