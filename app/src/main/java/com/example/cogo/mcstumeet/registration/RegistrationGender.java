@@ -20,11 +20,13 @@ public class RegistrationGender extends AppCompatActivity {
     public void passData(View view){
         Button female = (Button) findViewById(R.id.female_button);
         Intent intent = new Intent(this, RegistrationInterests.class);
+
         if(view == female){
             intent.putExtra("gender", "female");
         } else {
             intent.putExtra("gender", "male");
         }
+
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
