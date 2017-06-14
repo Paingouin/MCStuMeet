@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.cogo.mcstumeet.R;
 import com.example.cogo.mcstumeet.login.LogIn;
@@ -19,20 +20,25 @@ public class RegistrationGender extends AppCompatActivity {
 
     public void passData(View view){
         Button female = (Button) findViewById(R.id.female_button);
+        Button male = (Button) findViewById(R.id.male_button);
         Intent intent = new Intent(this, RegistrationInterests.class);
+        Toast toast=null;
 
         if(view == female){
-            intent.putExtra("gender", "female");
+            intent.putExtra("gender", "F");
+        } else if (view == male){
+            intent.putExtra("gender", "M");
         } else {
-            intent.putExtra("gender", "male");
+            //if the code is good you should never see this toast...
+            toast.makeText(this, "Please indicate your gender... ", Toast.LENGTH_SHORT).show();
         }
 
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
-    public void singIn(View view){
-        Button female = (Button) findViewById(R.id.signinStuMeet_button);
+    public void signIn(View view){
+        Button signin = (Button) findViewById(R.id.signinStuMeet_button);
         Intent intent = new Intent(this, LogIn.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

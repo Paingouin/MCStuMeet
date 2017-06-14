@@ -79,7 +79,7 @@
                 android:textColor="#FFFFFF"
                 android:text="@string/loginStuMeet"
                 android:id="@+id/signinStuMeet_button"
-                android:onClick="singIn"/>
+                android:onClick="signIn"/>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
