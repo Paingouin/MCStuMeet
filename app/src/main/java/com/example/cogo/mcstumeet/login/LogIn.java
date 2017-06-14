@@ -19,7 +19,8 @@ import java.util.concurrent.ExecutionException;
 
 public class LogIn extends AppCompatActivity {
     private Toast toast;
-    private String passwordDB, gender, hobbies, education, interested_in, language;
+    private char gender;
+    private String passwordDB, hobbies, education, interested_in, language;
     private ArrayList<DatabaseSchema> returnValues = new ArrayList<DatabaseSchema>();
 
     @Override
@@ -101,5 +102,7 @@ public class LogIn extends AppCompatActivity {
         * */
         Button forgotPwd = (Button)findViewById(R.id.forgot_pwd_button);
         this.toast.makeText(this, "We are sorry, there is no function yet!", Toast.LENGTH_SHORT).show();
+
+
     }
 }
