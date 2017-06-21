@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">MCStuMeet</string>
+
+    <string name="gender_female">Frau?</string>
+    <string name="gender_male">Mann?</string>
+    <string name="gender_text">Hey! Bist du...</string>
+
+    <string name="interests_text">Bist du hier für Mädchen...</string>
+    <string name="interests_girl">Mädchen?</string>
+    <string name="interests_guy">Jungs?</string>
+    <string name="or_text">– oder –</string>
+    <string name="loginStuMeet">Einloggen in StuMeet</string>
+    <string name="loginFB">Einloggen mit Facebook</string>
+
+    <string name="signin_text">Sign in</string>
+    <string name="username">Username</string>
+    <string name="email">University email</string>
+    <string name="password">Password</string>
+    <string name="reenter_password">Reenter password</string>
+    <string name="birthday">Birthday</string>
+    <string name="create_account">Create account</string>
+    <string name="next">Next</string>
+
+    <string name="education_reg_profile">Education</string>
+
+    <string name="login_text">Log in</string>
+    <string name="login">Log in</string>
+    <string name="forgot_pwd">Forgot password?</string>
+
+    <string name ="short_description">Short description:</string>
+    <string name ="interested_in">Interested in:</string>
+    <string name ="education">Education:</string>
+    <string name ="hobbies">Hobbies:</string>
+    <string name ="languages">Languages:</string>
+
+    <string-array name="education_array">
+        <item>Choose your education</item>
+        <item>Medien- und Kommunikationsinformatik</item>
+        <item>Medizinisch-Technische Informatik</item>
+        <item>Wirtschaftsinformatik</item>
+        <item>Angewandte Chemie</item>
+        <item>Biomedizinische Wissenschaften</item>
+        <item>International Fashion Retail</item>
+        <item>Textildesign/Modedesign</item>
+        <item>Textiltechnologie-Textilmanagement</item>
+        <item>Transportation Interior Design</item>
+        <item>International Business</item>
+        <item>International Management Double Degree</item>
+        <item>International Operations And Logistics Management</item>
+        <item>Production Management</item>
+    </string-array>
+
+    <string-array name="location_array">
+        <item>Locations</item>
+        <item>Cineplex Planie, Gartenstrasse 51 Reutlingen</item>
+        <item>Campus Kebap, Pestalozzistrasse 7 Reutlingen</item>
+        <item>Studentenbar CaRe e.V., Alteburgstrasse 150 Reutlingen</item>
+        <item>Mauritius, Kaiserpassage 6 Reutlingen</item>
+        <item>Mezcalitos Restaurant, Obere Waessere 1 Reutlingen</item>
+        <item>Mensa Hochschule, Alteburgstrasse 150 Reutlingen</item>
+        <item>ShooterStars Reutlingen, Gartenstrasse 49 Reutlingen</item>
+    </string-array>
+
+    <string name ="search">Search for username</string>
+</resources>
