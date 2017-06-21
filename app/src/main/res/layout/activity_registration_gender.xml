@@ -15,12 +15,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:paddingRight="20dp"
+        android:weightSum="1">
 
         <ImageView
-            android:layout_marginTop="25dp"
+            android:layout_height="146dp"
+            android:layout_marginTop="1dp"
             android:layout_width="wrap_content"
-            android:layout_height="185dp"
             app:srcCompat="@drawable/logo"
             android:id="@+id/imageView5">
         </ImageView>
@@ -62,7 +63,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="35dp"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
@@ -75,11 +76,47 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
                 android:background="@drawable/rounded_action_button"
                 android:textColor="#FFFFFF"
                 android:text="@string/loginStuMeet"
                 android:id="@+id/signinStuMeet_button"
                 android:onClick="singIn"/>
         </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_weight="0.03">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="imageClick"
+                app:srcCompat="@drawable/flag_fr" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:onClick="imageClick"
+                app:srcCompat="@drawable/flag_de" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:clickable="true"
+                android:onClick="imageClick"
+                app:srcCompat="@drawable/flag_en" />
+        </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>
