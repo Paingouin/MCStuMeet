@@ -84,6 +84,14 @@ public class LogIn extends AppCompatActivity {
     }
 
     public void forgotPwd(View view){
+
+        //Retrive an email from the user
+        // check if the e-mail is in the db
+        // yes :
+        //      sent a mail whith a  new password
+        //
+        // no :
+        //      show, you're not registrer
         Button forgotPwd = (Button)findViewById(R.id.forgot_pwd_button);
         this.toast.makeText(this, "We are sorry, there is no function yet!", Toast.LENGTH_SHORT).show();
     }
