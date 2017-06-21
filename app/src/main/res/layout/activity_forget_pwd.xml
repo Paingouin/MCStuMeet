@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:background="@drawable/rounded_action_button"
-            android:onClick="passData"
+            android:onClick="sendMail"
             android:text="send_e_mail"
             android:textColor="#FFFFFF"
             tools:text="Send e-mail" />

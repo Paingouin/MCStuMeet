@@ -1,6 +1,7 @@
 package com.example.cogo.mcstumeet.login;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.example.cogo.mcstumeet.R;
 import com.example.cogo.mcstumeet.database.DatabaseSchema;
 import com.example.cogo.mcstumeet.database.GetUserAsyncTask;
+import com.example.cogo.mcstumeet.mail.ForgetPassword;
 import com.example.cogo.mcstumeet.profile.Profile;
 import com.example.cogo.mcstumeet.security.Encryption;
 
@@ -85,8 +87,8 @@ public class LogIn extends AppCompatActivity {
 
     public void forgotPwd(View view){
 
-
-        Button forgotPwd = (Button)findViewById(R.id.forgot_pwd_button);
-        this.toast.makeText(this, "We are sorry, there is no function yet!", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, ForgetPassword.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }

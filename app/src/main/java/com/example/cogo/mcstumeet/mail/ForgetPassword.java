@@ -2,12 +2,11 @@ package com.example.cogo.mcstumeet.mail;
 
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+
 
 import com.example.cogo.mcstumeet.R;
 import com.example.cogo.mcstumeet.database.DatabaseSchema;
@@ -20,6 +19,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+
 public class ForgetPassword extends AppCompatActivity {
 
     /** Called when the activity is first created. */
@@ -27,25 +27,14 @@ public class ForgetPassword extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_pwd);
+    }
 
-        final Button send = (Button) this.findViewById(R.id.forget_button);
-        send.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-
-                try {
-                    GMailSender sender = new GMailSender("stumeetapp@gmail.com", "ironm@iden21!");
-                    sender.sendMail("This is Subject",
-                            "This is Body",
-                            "jordan.bussiere21@gmail.com",
-                            "user@yahoo.com");
-                } catch (Exception e) {
-                    Log.e("SendMail", e.getMessage(), e);
-                }
-
-            }
-        });
+    public void sendMail(View view){
+        Log.e("test","yeededazd");
+        AsyncMail sd = new AsyncMail();
+        sd.execute();
 
     }
+
 }
+

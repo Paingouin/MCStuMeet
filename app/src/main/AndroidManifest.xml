@@ -27,6 +27,7 @@
         <activity android:name=".profile.ShowProfile"/>
         <activity android:name=".date.DateRequest"/>
         <activity android:name=".registration.RegistrationProfile"/>
+        <activity android:name=".mail.ForgetPassword"/>
     </application>
 
 </manifest>
