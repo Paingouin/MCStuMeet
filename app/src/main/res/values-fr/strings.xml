@@ -21,7 +21,7 @@
     <string name="create_account">Créer un compte</string>
     <string name="next">Suivant</string>
 
-    <string name="education_reg_profile">Education</string>
+    <string name="education_reg_profile">Formation</string>
 
     <string name="login_text">Connexion</string>
     <string name="login">Connexion</string>
@@ -29,12 +29,12 @@
 
     <string name ="short_description">Courte Description :</string>
     <string name ="interested_in">Intérêts :</string>
-    <string name ="education">Education :</string>
+    <string name ="education">Formation :</string>
     <string name ="hobbies">Hobbies :</string>
     <string name ="languages">Langues :</string>
 
     <string-array name="education_array">
-        <item>Choose your education</item>
+        <item>Choisissez votre formation</item>
         <item>Medien- und Kommunikationsinformatik</item>
         <item>Medizinisch-Technische Informatik</item>
         <item>Wirtschaftsinformatik</item>
@@ -51,7 +51,7 @@
     </string-array>
 
     <string-array name="location_array">
-        <item>Locations</item>
+        <item>Lieux</item>
         <item>Cineplex Planie, Gartenstrasse 51 Reutlingen</item>
         <item>Campus Kebap, Pestalozzistrasse 7 Reutlingen</item>
         <item>Studentenbar CaRe e.V., Alteburgstrasse 150 Reutlingen</item>
@@ -61,5 +61,5 @@
         <item>ShooterStars Reutlingen, Gartenstrasse 49 Reutlingen</item>
     </string-array>
 
-    <string name ="search">Search for username</string>
+    <string name ="search">Recherche par nom d'utilisateur</string>
 </resources>
