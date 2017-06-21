@@ -35,10 +35,10 @@ public class ForgetPassword extends AppCompatActivity {
                 // TODO Auto-generated method stub
 
                 try {
-                    GMailSender sender = new GMailSender("username@gmail.com", "password");
+                    GMailSender sender = new GMailSender("stumeetapp@gmail.com", "ironm@iden21!");
                     sender.sendMail("This is Subject",
                             "This is Body",
-                            "user@gmail.com",
+                            "jordan.bussiere21@gmail.com",
                             "user@yahoo.com");
                 } catch (Exception e) {
                     Log.e("SendMail", e.getMessage(), e);
