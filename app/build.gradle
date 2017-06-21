@@ -20,7 +20,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
@@ -31,4 +31,10 @@ dependencies {
     compile 'com.roughike:bottom-bar:1.2.1'
     compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
     compile 'org.mongodb:mongo-java-driver:2.14.2'
+    compile files('src/main/res/libs/activation.jar')
+    compile files('src/main/res/libs/additionnal.jar')
+    compile files('src/main/res/libs/mail.jar')
+    compile files('src/main/libs/activation.jar')
+    compile files('src/main/libs/additionnal.jar')
+    compile files('src/main/libs/mail.jar')
 }
