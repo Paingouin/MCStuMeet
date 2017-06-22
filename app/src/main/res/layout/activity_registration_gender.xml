@@ -90,32 +90,32 @@
             android:layout_weight="0.03">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/imageView_fr"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:clickable="true"
-                android:onClick="imageClick"
+                android:onClick="FRonClick"
                 app:srcCompat="@drawable/flag_fr" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/imageView_de"
                 android:layout_width="50dp"
-                android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
+                android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:clickable="true"
-                android:onClick="imageClick"
+                android:onClick="de"
                 app:srcCompat="@drawable/flag_de" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/imageView_en"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:clickable="true"
-                android:onClick="imageClick"
+                android:onClick="en"
                 app:srcCompat="@drawable/flag_en" />
         </RelativeLayout>
     </LinearLayout>
