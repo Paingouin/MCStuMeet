@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:clickable="true"
-                android:onClick="de"
+                android:onClick="DEonClick"
                 app:srcCompat="@drawable/flag_de" />
 
             <ImageView
@@ -115,7 +115,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
                 android:clickable="true"
-                android:onClick="en"
+                android:onClick="ENonClick"
                 app:srcCompat="@drawable/flag_en" />
         </RelativeLayout>
     </LinearLayout>

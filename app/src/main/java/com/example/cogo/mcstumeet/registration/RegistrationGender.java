@@ -27,23 +27,42 @@ ImageView imageView_fr;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_gender);
     }
-
-
-
+    //Traduction FR
     public void FRonClick(View view) {
 
-
-                Configuration config = new Configuration();
-            config.locale = Locale.FRENCH;
-
-            Log.e("langue", "changée");
+        Configuration config = new Configuration();
+        config.locale = Locale.FRENCH;
 
         getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
         Intent intent = new Intent(this, RegistrationGender.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
     }
+
+    //Traduction DE
+    public void DEonClick(View view) {
+
+        Configuration config = new Configuration();
+        config.locale = Locale.GERMAN;
+
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        Intent intent = new Intent(this, RegistrationGender.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    //Traduction EN
+    public void ENonClick(View view) {
+
+        Configuration config = new Configuration();
+        config.locale = Locale.ENGLISH;
+
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+        Intent intent = new Intent(this, RegistrationGender.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
 
     public void passData(View view) {
         Button female = (Button) findViewById(R.id.female_button);
