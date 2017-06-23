@@ -20,7 +20,7 @@
 
         <ImageView
             android:layout_height="146dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="15dp"
             android:layout_width="wrap_content"
             app:srcCompat="@drawable/logo"
             android:id="@+id/imageView5">
@@ -63,7 +63,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="55dp"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
@@ -86,22 +86,26 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="80dp"
             android:layout_weight="0.03">
 
             <ImageView
                 android:id="@+id/imageView_fr"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
+                android:layout_marginTop="32dp"
                 android:clickable="true"
                 android:onClick="FRonClick"
-                app:srcCompat="@drawable/flag_fr" />
+                app:srcCompat="@drawable/flag_fr"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
             <ImageView
                 android:id="@+id/imageView_de"
-                android:layout_width="50dp"
-                android:layout_alignParentTop="true"
+                android:layout_width="55dp"
                 android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/imageView_fr"
                 android:layout_centerHorizontal="true"
                 android:clickable="true"
                 android:onClick="DEonClick"
@@ -109,14 +113,15 @@
 
             <ImageView
                 android:id="@+id/imageView_en"
-                android:layout_width="50dp"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
                 android:clickable="true"
                 android:onClick="ENonClick"
-                app:srcCompat="@drawable/flag_en" />
+                app:srcCompat="@drawable/flag_en"
+                android:layout_alignTop="@+id/imageView_de" />
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

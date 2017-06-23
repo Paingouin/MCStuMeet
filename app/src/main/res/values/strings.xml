@@ -33,6 +33,16 @@
     <string name ="hobbies">Hobbies:</string>
     <string name ="languages">Languages:</string>
 
+    //toast
+    <string name ="wrong_email">Email is invalid. Please use your university email address!</string>
+    <string name ="wrong_password">No match between your passwords!</string>
+    <string name ="invalid_email">Invalid email address!</string>
+    <string name ="low_password">Your password must contain more than 3 characters!</string>
+    <string name ="username_taken">This username is already taken. Please choose another one.</string>
+    <string name ="low_username">Your username must contain more than 1 characters!</string>
+    <string name ="field_error">Please fill out all fields!</string>
+
+
     <string-array name="education_array">
         <item>Choose your education</item>
         <item>Medien- und Kommunikationsinformatik</item>

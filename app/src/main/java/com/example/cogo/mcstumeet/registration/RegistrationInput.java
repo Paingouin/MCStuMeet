@@ -85,25 +85,25 @@ public class RegistrationInput extends AppCompatActivity {
                                     startActivity(intent);
                                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                                 } else {
-                                    this.toast.makeText(this, "Email is unvalid. Please use your university email address!", Toast.LENGTH_SHORT).show();
+                                    this.toast.makeText(getApplicationContext(),R.string.wrong_email, Toast.LENGTH_SHORT).show();
                                 }
                             } else {
-                                this.toast.makeText(this, "No match between your passwords!", Toast.LENGTH_SHORT).show();
+                                this.toast.makeText(getApplicationContext(),R.string.wrong_password, Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            this.toast.makeText(this, "Unvalid email address!", Toast.LENGTH_SHORT).show();
+                            this.toast.makeText(getApplicationContext(),R.string.invalid_email, Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        this.toast.makeText(this, "Your password must contain more than 3 characters!", Toast.LENGTH_SHORT).show();
+                        this.toast.makeText(getApplicationContext(),R.string.low_password, Toast.LENGTH_SHORT).show();
                     }
                 }  else {
-                this.toast.makeText(this, "This username is already taken. Please choose another one.", Toast.LENGTH_SHORT).show();
+                this.toast.makeText(getApplicationContext(),R.string.username_taken, Toast.LENGTH_SHORT).show();
                 }
             } else {
-                this.toast.makeText(this, "Your username must contain more than 1 characters!", Toast.LENGTH_LONG).show();
+                this.toast.makeText(getApplicationContext(),R.string.low_username, Toast.LENGTH_LONG).show();
             }
         } else {
-            this.toast.makeText(this, "Please fill out all fields!", Toast.LENGTH_LONG).show();
+            this.toast.makeText(getApplicationContext(),R.string.field_error, Toast.LENGTH_LONG).show();
         }
     }
 }

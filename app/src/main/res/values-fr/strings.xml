@@ -12,7 +12,7 @@
     <string name="loginStuMeet">Connexion à StuMeet</string>
     <string name="loginFB">Connexion avec Facebook</string>
 
-    <string name="signin_text">Inscritionion</string>
+    <string name="signin_text">Inscription</string>
     <string name="username">Nom d\'utilisateur</string>
     <string name="email">Mail d\'université</string>
     <string name="password">Mot de passe</string>
@@ -32,6 +32,16 @@
     <string name ="education">Formation :</string>
     <string name ="hobbies">Hobbies :</string>
     <string name ="languages">Langues :</string>
+
+    //toast
+    <string name ="wrong_email">L\'émail est invalide. Utilisez l\'adresse mail de votre université! </string>
+    <string name ="wrong_password">Aucune correspondance entre vos mots de passe!</string>
+    <string name ="invalid_email">Adresse mail invalide!</string>
+    <string name ="low_password">Votre mot de passe doit contenir plus de 3 caractères!</string>
+    <string name ="username_taken">Ce nom d\'utilisateur est déjà pris. Choisissez-en un autre.</string>
+    <string name ="low_username">Votre nom d\'utilisateur doit contenir plus de 1 caractère!</string>
+    <string name ="field_error">Remplissez tous les champs!</string>
+
 
     <string-array name="education_array">
         <item>Choisissez votre formation</item>

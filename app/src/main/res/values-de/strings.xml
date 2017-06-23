@@ -33,6 +33,16 @@
     <string name ="hobbies">Hobbies:</string>
     <string name ="languages">Sprachen:</string>
 
+    //toast
+    <string name ="wrong_email">E-Mail ist ungültig. Bitte benutzen Sie Ihre E-Mail-Adresse!</string>
+    <string name ="wrong_password">Keine Übereinstimmung zwischen Ihren Passwörtern!</string>
+    <string name ="invalid_email">Ungültige E-Mail-Adresse!</string>
+    <string name ="low_password">Ihr Passwort muss mehr als 3 Zeichen enthalten!</string>
+    <string name ="username_taken">Dieser Benutzername ist bereits vergeben. Bitte wählen Sie einen anderen.</string>
+    <string name ="low_username">Ihr Benutzername muss mehr als 1 Zeichen enthalten!</string>
+    <string name ="field_error">Bitte fülle alle Felder aus!</string>
+
+
     <string-array name="education_array">
         <item>Wählen ihre Ausbildung</item>
         <item>Medien- und Kommunikationsinformatik</item>
