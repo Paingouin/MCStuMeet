@@ -45,6 +45,7 @@ public class GetUserAsyncTask extends AsyncTask<DatabaseSchema, Void, ArrayList<
                 DBObject userObj = (DBObject) userList.get(i);
                 DatabaseSchema temp = new DatabaseSchema();
 
+                temp.setDoc_id(userObj.get("id").toString());
                 temp.setUsername(userObj.get("username").toString());
                 temp.setBirthday(userObj.get("birthday").toString());
                 temp.setEmail(userObj.get("email").toString());

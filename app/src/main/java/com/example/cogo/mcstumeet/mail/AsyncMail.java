@@ -7,17 +7,18 @@ import android.util.Log;
  * Created by Jordan on 21/06/2017.
  */
 
-public class AsyncMail extends AsyncTask<Void,Integer, Void>
+public class AsyncMail extends AsyncTask<String,Integer, Void>
 {
     @Override
-    protected Void doInBackground(Void... arg0)
+    protected Void doInBackground(String... arg0)
     {
         try {
+            String mail= arg0[0];
             GMailSender sender = new GMailSender("stumeetapp@gmail.com", "ironm@iden21!");
             sender.sendMail("This is Subject",
                     "This is Body",
-                    "jordan.bussiere21@gmail.com",
-                    "jordan.bussiere21@gmail.com");
+                    mail,
+                    mail);
         } catch (Exception e) {
             Log.e("SendMail", e.getMessage(), e);
         }

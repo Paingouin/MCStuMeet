@@ -20,6 +20,11 @@ public class QueryBuilder {
         return "?apiKey="+getApiKey();
     }
 
+    public String docApiKeyUrl(String docid)
+    {
+        return "/"+docid+"?apiKey="+getApiKey();
+    }
+
     public String documentRequest()
     {
         return "users";
@@ -35,6 +40,11 @@ public class QueryBuilder {
         return getBaseUrl()+documentRequest()+docApiKeyUrl();
     }
 
+    public String buildContactsUpdateURL(String _id)
+    {
+        return getBaseUrl()+documentRequest()+docApiKeyUrl(_id);
+    }
+
     public String createContact(DatabaseSchema contact)
     {
         return String
@@ -48,4 +58,19 @@ public class QueryBuilder {
                         contact.interests, contact.hobbies, contact.description, contact.image, contact.education,
                         contact.languages);
     }
+
+    public String setUserData(DatabaseSchema contact)
+    {
+        return String
+                .format(   "{\"$set\":" + "{\"username\": \"%s\", "
+                                + "\"password\": \"%s\", \"email\": \"%s\", "
+                                + "\"birthday\": \"%s\", \"gender\" : \"%s\", \"interests\" : \"%s\", "
+                                +"\"hobbies\" : \"%s\", \"description\" : \"%s\", "
+                                +"\"image\" : \"%s\", \"education\" : \"%s\", "
+                                +"\"languages\" : \"%s\", \"safe\" : true}" + "}" ,
+                        contact.username, contact.password, contact.email, contact.birthday, contact.gender,
+                        contact.interests, contact.hobbies, contact.description, contact.image, contact.education,
+                        contact.languages);
+    }
 }
+
