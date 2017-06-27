@@ -103,10 +103,10 @@ public class ForgetPassword extends AppCompatActivity {
                         this.toast.makeText(this, "Email is unvalid. Please use your university email address!", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    this.toast.makeText(this, "The user don't Exist!", Toast.LENGTH_SHORT).show();
+                    this.toast.makeText(this, "Unvalid email address!", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                this.toast.makeText(this, "Unvalid email address!", Toast.LENGTH_SHORT).show();
+                this.toast.makeText(this, "The user don't Exist!", Toast.LENGTH_SHORT).show();
             }
         } else {
             this.toast.makeText(this, "Please fill out all fields!", Toast.LENGTH_LONG).show();
