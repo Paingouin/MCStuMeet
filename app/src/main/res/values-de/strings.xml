@@ -25,7 +25,11 @@
 
     <string name="login_text">Einloggen</string>
     <string name="login">Einloggen</string>
+    //password forgotten
     <string name="forgot_pwd">Passwort vergessen?</string>
+    <string name="enter_email">Geben sie ihre E-Mail Adresse</string>
+    <string name="send_new_pwd">Neues Passwort senden</string>
+
 
     <string name ="short_description">Kurzbeschreibung:</string>
     <string name ="interested_in">Interessiert an:</string>

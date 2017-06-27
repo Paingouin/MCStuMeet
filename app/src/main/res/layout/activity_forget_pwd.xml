@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="forget_pwd"
+            android:text="@string/forgot_pwd"
             android:textSize="16pt"
             android:textStyle="bold"
             tools:text="Forget password" />
@@ -51,7 +51,7 @@
                 style="@style/textStyleSignin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="e_mail_to_send_pwd"
+                android:hint="@string/enter_email"
                 android:inputType="textEmailAddress" />
         </android.support.design.widget.TextInputLayout>
 
@@ -63,7 +63,7 @@
             android:layout_marginTop="25dp"
             android:background="@drawable/rounded_action_button"
             android:onClick="sendMail"
-            android:text="send_e_mail"
+            android:text="@string/send_new_pwd"
             android:textColor="#FFFFFF"
             tools:text="Send e-mail" />
 

@@ -25,7 +25,10 @@
 
     <string name="login_text">Connexion</string>
     <string name="login">Connexion</string>
+    //password forgotten
     <string name="forgot_pwd">Mot de passe oublié?</string>
+    <string name="enter_email">Entrez votre email</string>
+    <string name="send_new_pwd">Envoyer un nouveau mot de passe</string>
 
     <string name ="short_description">Courte Description :</string>
     <string name ="interested_in">Intérêts :</string>
