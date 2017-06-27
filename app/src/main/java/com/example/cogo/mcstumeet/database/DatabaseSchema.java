@@ -1,6 +1,8 @@
 package com.example.cogo.mcstumeet.database;
 
 public class DatabaseSchema {
+
+    public String _id;
     public String username;
     public String email;
     public String password;
@@ -12,6 +14,13 @@ public class DatabaseSchema {
     public String hobbies;
     public String education;
     public String languages;
+
+    public String getDoc_id() {
+        return _id;
+    }
+    public void setDoc_id(String doc_id) {
+        this._id = _id;
+    }
 
     public void setUsername(String username) {
         this.username = username;

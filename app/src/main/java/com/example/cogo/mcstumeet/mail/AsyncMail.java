@@ -9,15 +9,25 @@ import android.util.Log;
 
 public class AsyncMail extends AsyncTask<Void,Integer, Void>
 {
+
+    String mail;
+    String pwd;
+
+    public AsyncMail(String mail, String pwd){
+        this.mail = mail;
+        this.pwd = pwd;
+    }
+
     @Override
     protected Void doInBackground(Void... arg0)
     {
         try {
+
             GMailSender sender = new GMailSender("stumeetapp@gmail.com", "ironm@iden21!");
             sender.sendMail("This is Subject",
-                    "This is Body",
-                    "jordan.bussiere21@gmail.com",
-                    "jordan.bussiere21@gmail.com");
+                    "This is your new password :" +pwd,
+                    mail,
+                    mail);
         } catch (Exception e) {
             Log.e("SendMail", e.getMessage(), e);
         }
