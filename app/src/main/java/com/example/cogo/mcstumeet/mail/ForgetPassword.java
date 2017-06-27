@@ -25,6 +25,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.ExecutionException;
 
 import java.io.OutputStreamWriter;
@@ -81,15 +82,18 @@ public class ForgetPassword extends AppCompatActivity {
                         splittedEmail = forSplitEmail[1];
                     }
 
-                    String pwd = "test";
                     if (universityEmail.equals(splittedEmail)) {
-                        this.encryptedPwd = this.encryption.encrypt(pwd);
+                        RandomString rd = new RandomString(10);
 
+                        String pwd = rd.nextString();
+
+                        this.encryptedPwd = this.encryption.encrypt(pwd);
+                        db.setPassword(encryptedPwd);
                         MongoLabUpdateContact tsk = new MongoLabUpdateContact();
                         tsk.execute(db);
 
-                        AsyncMail sd = new AsyncMail();
-                        sd.execute(email);
+                        AsyncMail sd = new AsyncMail(email, pwd);
+                        sd.execute();
 
                         Intent intent = new Intent(this, LogIn.class);
                         startActivity(intent);
@@ -156,6 +160,42 @@ public class ForgetPassword extends AppCompatActivity {
         }
 
     }
+
+
+    private class RandomString {
+
+        private final char[] symbols;
+
+        {
+            StringBuilder tmp = new StringBuilder();
+            for (char ch = '0'; ch <= '9'; ch++) {
+                tmp.append(ch);
+            }
+            for (char ch = 'a'; ch <= 'z'; ch++) {
+                tmp.append(ch);
+            }
+            symbols = tmp.toString().toCharArray();
+        }
+
+        private final Random random = new Random();
+
+        private final char[] buf;
+
+        public RandomString(int length) {
+            if (length < 1) {
+                throw new IllegalArgumentException("length < 1: " + length);
+            }
+            buf = new char[length];
+        }
+
+        public String nextString() {
+            for (int i = 0; i < buf.length; i++) {
+                buf[i] = symbols[random.nextInt(symbols.length)];
+            }
+            return new String(buf);
+        }
+    }
+
 
 }
 
