@@ -12,6 +12,7 @@ import com.example.cogo.mcstumeet.R;
 import com.example.cogo.mcstumeet.database.DatabaseSchema;
 import com.example.cogo.mcstumeet.database.GetUserAsyncTask;
 import com.example.cogo.mcstumeet.database.QueryBuilder;
+import com.example.cogo.mcstumeet.database.UpdateUser;
 import com.example.cogo.mcstumeet.login.LogIn;
 import com.example.cogo.mcstumeet.profile.Profile;
 import com.example.cogo.mcstumeet.security.Encryption;
@@ -89,7 +90,7 @@ public class ForgetPassword extends AppCompatActivity {
 
                         this.encryptedPwd = this.encryption.encrypt(pwd);
                         db.setPassword(encryptedPwd);
-                        MongoLabUpdateContact tsk = new MongoLabUpdateContact();
+                        UpdateUser tsk = new UpdateUser();
                         tsk.execute(db);
 
                         AsyncMail sd = new AsyncMail(email, pwd);
@@ -115,52 +116,6 @@ public class ForgetPassword extends AppCompatActivity {
 
 
     }
-
-    final class MongoLabUpdateContact extends AsyncTask<Object, Void, Boolean> {
-
-        @Override
-        protected Boolean doInBackground(Object... params) {
-            DatabaseSchema contact = (DatabaseSchema) params[0];
-
-            try {
-
-                QueryBuilder qb = new QueryBuilder();
-                URL url = new URL(qb.buildContactsUpdateURL(contact.getDoc_id()));
-                HttpURLConnection connection = (HttpURLConnection) url
-                        .openConnection();
-                connection.setRequestMethod("PUT");
-                connection.setDoOutput(true);
-                connection.setRequestProperty("Content-Type",
-                        "application/json");
-                connection.setRequestProperty("Accept", "application/json");
-
-                OutputStreamWriter osw = new OutputStreamWriter(
-                        connection.getOutputStream());
-
-                osw.write(qb.setUserData(contact));
-                osw.flush();
-                osw.close();
-                if(connection.getResponseCode() <205)
-                {
-
-                    return true;
-                }
-                else
-                {
-                    return false;
-
-                }
-
-            } catch (Exception e) {
-                e.getMessage();
-                return false;
-
-            }
-
-        }
-
-    }
-
 
     private class RandomString {
 
@@ -195,7 +150,5 @@ public class ForgetPassword extends AppCompatActivity {
             return new String(buf);
         }
     }
-
-
 }
 
