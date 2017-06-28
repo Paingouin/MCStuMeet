@@ -24,8 +24,8 @@ public class AsyncMail extends AsyncTask<Void,Integer, Void>
         try {
 
             GMailSender sender = new GMailSender("stumeetapp@gmail.com", "ironm@iden21!");
-            sender.sendMail("This is Subject",
-                    "This is your new password :" +pwd,
+            sender.sendMail("Your new password",
+                    "This is your new password : " +pwd,
                     mail,
                     mail);
         } catch (Exception e) {

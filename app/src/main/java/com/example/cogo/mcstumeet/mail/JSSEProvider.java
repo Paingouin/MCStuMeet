@@ -17,11 +17,6 @@ package com.example.cogo.mcstumeet.mail;
  *  limitations under the License.
  */
 
-/**
- * @author Alexander Y. Kleymenov
- * @version $Revision$
- */
-
 
 import java.security.AccessController;
 import java.security.Provider;
