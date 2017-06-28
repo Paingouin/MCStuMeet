@@ -13,9 +13,14 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class GetUserAsyncTask extends AsyncTask<DatabaseSchema, Void, ArrayList<DatabaseSchema>> {
-    private static String server_output = null;
-    private static String temp_output = null;
-    public ArrayList<DatabaseSchema> user = new ArrayList<DatabaseSchema>();
+    private static String server_output ;
+    public ArrayList<DatabaseSchema> user ;
+
+
+    @Override
+    protected void onPreExecute(){
+        user = new ArrayList<DatabaseSchema>();
+    }
 
     @Override
     protected ArrayList<DatabaseSchema> doInBackground(DatabaseSchema... arg0) {
@@ -31,13 +36,14 @@ public class GetUserAsyncTask extends AsyncTask<DatabaseSchema, Void, ArrayList<
             }
             BufferedReader br = new BufferedReader(new InputStreamReader((connection.getInputStream())));
 
-            while ((temp_output = br.readLine()) != null) {
-                server_output = temp_output;
-            }
+            server_output= br.readLine();
+
         } catch (Exception e) {
             e.getMessage();
         }
             String mongoarray = "{list: " + server_output + "}";
+            server_output = null;
+            System.gc(); // Call of  garbadge collector
             Object o = JSON.parse(mongoarray);
             DBObject dbObj = (DBObject) o;
             BasicDBList userList = (BasicDBList) dbObj.get("list");
@@ -46,7 +52,7 @@ public class GetUserAsyncTask extends AsyncTask<DatabaseSchema, Void, ArrayList<
                 DBObject userObj = (DBObject) userList.get(i);
                 DatabaseSchema temp = new DatabaseSchema();
 
-                //temp.setDoc_id(userObj.get("id").toString());
+                temp.setDoc_id(userObj.get("_id").toString());
                 temp.setUsername(userObj.get("username").toString());
                 temp.setBirthday(userObj.get("birthday").toString());
                 temp.setEmail(userObj.get("email").toString());

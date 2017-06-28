@@ -15,8 +15,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class GetRequestAsyncTask extends AsyncTask<DatabaseSchemaDate, Void, ArrayList<DatabaseSchemaDate>> {
-    private static String server_output = null;
-    private static String temp_output = null;
+    private static String server_output;
     public ArrayList<DatabaseSchemaDate> request = new ArrayList<DatabaseSchemaDate>();
 
     @Override
@@ -32,9 +31,9 @@ public class GetRequestAsyncTask extends AsyncTask<DatabaseSchemaDate, Void, Arr
                 throw new RuntimeException("Failed : HTTP error code : " + connection.getResponseCode());
             }
             BufferedReader br = new BufferedReader(new InputStreamReader((connection.getInputStream())));
-            while ((temp_output = br.readLine()) != null) {
-                server_output = temp_output;
-            }
+
+            server_output = br.readLine();
+
         } catch (Exception e) {
             e.getMessage();
         }
@@ -56,6 +55,7 @@ public class GetRequestAsyncTask extends AsyncTask<DatabaseSchemaDate, Void, Arr
 
             this.request.add(temp);
         }
+
         return this.request;
     }
 }

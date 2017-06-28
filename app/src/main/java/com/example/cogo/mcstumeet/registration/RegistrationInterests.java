@@ -15,9 +15,10 @@ public class RegistrationInterests extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_registration_interests);
         Bundle extras = getIntent().getExtras();
         data_gender = extras.getString("gender");
-        setContentView(R.layout.activity_registration_interests);
+
     }
 
     public void passData(View view){
