@@ -43,11 +43,15 @@ public class GetUserAsyncTask extends AsyncTask<DatabaseSchema, Void, ArrayList<
         }
             String mongoarray = "{list: " + server_output + "}";
             server_output = null;
-            System.gc(); // Call of  garbadge collector
-            Object o = JSON.parse(mongoarray);
-            DBObject dbObj = (DBObject) o;
-            BasicDBList userList = (BasicDBList) dbObj.get("list");
 
+            Object o = JSON.parse(mongoarray);
+            mongoarray = null;
+            DBObject dbObj = (DBObject) o;
+            o = null;
+            BasicDBList userList = (BasicDBList) dbObj.get("list");
+            dbObj =null;
+
+            System.gc(); // Call of  garbadge collector
             for(int i=0; i<userList.size(); i++){
                 DBObject userObj = (DBObject) userList.get(i);
                 DatabaseSchema temp = new DatabaseSchema();

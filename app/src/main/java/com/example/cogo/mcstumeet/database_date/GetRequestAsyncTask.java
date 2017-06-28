@@ -39,6 +39,8 @@ public class GetRequestAsyncTask extends AsyncTask<DatabaseSchemaDate, Void, Arr
         }
 
         String mongoarray = "{list: " + server_output + "}";
+        server_output = null;
+        System.gc();//force call the gardbadge collector.
         Object o = JSON.parse(mongoarray);
         DBObject dbObj = (DBObject) o;
         BasicDBList requestList = (BasicDBList) dbObj.get("list");
