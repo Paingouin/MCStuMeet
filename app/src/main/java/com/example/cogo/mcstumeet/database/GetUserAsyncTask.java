@@ -30,6 +30,7 @@ public class GetUserAsyncTask extends AsyncTask<DatabaseSchema, Void, ArrayList<
                 throw new RuntimeException("Failed : HTTP error code : " + connection.getResponseCode());
             }
             BufferedReader br = new BufferedReader(new InputStreamReader((connection.getInputStream())));
+
             while ((temp_output = br.readLine()) != null) {
                 server_output = temp_output;
             }
@@ -45,7 +46,7 @@ public class GetUserAsyncTask extends AsyncTask<DatabaseSchema, Void, ArrayList<
                 DBObject userObj = (DBObject) userList.get(i);
                 DatabaseSchema temp = new DatabaseSchema();
 
-                temp.setDoc_id(userObj.get("id").toString());
+                //temp.setDoc_id(userObj.get("id").toString());
                 temp.setUsername(userObj.get("username").toString());
                 temp.setBirthday(userObj.get("birthday").toString());
                 temp.setEmail(userObj.get("email").toString());
