@@ -18,6 +18,10 @@ public class AsyncMail extends AsyncTask<Void,Integer, Void>
         this.pwd = pwd;
     }
 
+    /*if the request for a forgotten password is accepted, the application send in background an email.
+     *the email of the application is "stumeetapp@gmail.com" and the password is "ironm@iden21!"
+     * the email sent is an email with a new password random generate.
+     * */
     @Override
     protected Void doInBackground(Void... arg0)
     {

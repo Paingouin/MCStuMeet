@@ -36,6 +36,12 @@ public class DatesFragment extends Fragment {
     private int index = 0;
     private ArrayList<DatabaseSchemaDate> myDates = new ArrayList<DatabaseSchemaDate>();
 
+    /*
+    * this function is about the meeting requests.
+    * when you want a meeting, you send a request to the user you want to meet,
+    * and this other user have to accept or decline your meeting proposition.
+    *
+    * */
     @Nullable
     @Override
     public View onCreateView(final LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {

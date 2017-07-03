@@ -21,6 +21,12 @@ package com.example.cogo.mcstumeet.mail;
 import java.security.AccessController;
 import java.security.Provider;
 
+
+/*
+* this is a basic class to permit to the application to send emails.
+* this is required for the forgotten password.
+*
+* */
 public final class JSSEProvider extends Provider {
 
     public JSSEProvider() {

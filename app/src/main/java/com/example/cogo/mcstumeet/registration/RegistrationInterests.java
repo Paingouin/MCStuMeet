@@ -20,7 +20,9 @@ public class RegistrationInterests extends AppCompatActivity {
         data_gender = extras.getString("gender");
 
     }
-
+    // this function is the following of the "registrationGender" if you are not a user
+    // this function is to know if you are interested in "girls or boys".
+    // and go to "RegistrationInput" after that.
     public void passData(View view){
         Button girls = (Button) findViewById(R.id.interests_girl);
         Intent intent = new Intent(this, RegistrationInput.class);

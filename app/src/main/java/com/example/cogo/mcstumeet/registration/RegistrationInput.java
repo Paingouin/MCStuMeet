@@ -36,6 +36,8 @@ public class RegistrationInput extends AppCompatActivity {
         data_interests = extras.getString("interests");
     }
 
+    //this function is a big function about the registration.
+    //we have to update the DB with the followed information entered by the future user
     public void passData(View view) throws Exception {
         Button nextButton = (Button) findViewById(R.id.next_button);
         EditText name = (EditText) findViewById(R.id.registration_username);
@@ -54,6 +56,7 @@ public class RegistrationInput extends AppCompatActivity {
 
         this.usernameIsInDb = false;
 
+        // First we verify if there is no missing information.
         if((!(pwd.isEmpty() || pwdValid.isEmpty() || email.isEmpty() || username.isEmpty() || birthday.isEmpty()))
                 ||(!(pwd.isEmpty() && pwdValid.isEmpty() && email.isEmpty() && username.isEmpty() && birthday.isEmpty()))){
             if(username.length() > 1) {
@@ -65,6 +68,12 @@ public class RegistrationInput extends AppCompatActivity {
                         this.usernameIsInDb = true;
                     }
                 }
+                /* we verify if the user already exist or not,
+                 * if the password is good enough,
+                 * if the e-mail is from the Reutlingen university,
+                 * and so on...
+                 *
+                 * */
                 if(this.usernameIsInDb == false){
                     if (password.length() > 3) {
                         if (email.matches("(.*)@(.*)")) {

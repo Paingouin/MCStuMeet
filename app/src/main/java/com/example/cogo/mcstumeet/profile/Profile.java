@@ -20,6 +20,8 @@ import com.roughike.bottombar.OnMenuTabSelectedListener;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
+/*
+* this is the profile of your account.*/
 public class Profile extends AppCompatActivity {
     public BottomBar bottomBar;
     public UsersProfileFragment profile;
@@ -68,6 +70,7 @@ public class Profile extends AppCompatActivity {
                 }
             }
         }
+        // you can be noticed about a new request by toast.
         if(this.gotRequest > 0){
             this.toast.makeText(this, "You got " + this.gotRequest + " date requests!", Toast.LENGTH_SHORT).show();
         }
@@ -106,6 +109,7 @@ public class Profile extends AppCompatActivity {
                 } catch (ExecutionException e) {
                     e.printStackTrace();
                 }
+                // you can accept or decline any request you want.
                 for(DatabaseSchemaResponse db: requestListResponse){
                     if(username.equals(db.getSender())){
                         if(db.getAccepted() == "true"){

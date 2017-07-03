@@ -27,6 +27,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.concurrent.ExecutionException;
 
+/*
+* this function is about the requested meetings.
+* to sort out the request you sent.
+* you can't spam any user for a meeting.
+* */
 @TargetApi(25)
 public class DateRequest extends AppCompatActivity {
     private DateFormat formatDateTime = DateFormat.getDateTimeInstance();

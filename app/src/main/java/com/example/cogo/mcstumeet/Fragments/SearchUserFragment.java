@@ -35,6 +35,11 @@ public class SearchUserFragment extends Fragment {
     private Toast toast;
     private View view;
 
+
+    /*
+    * if you looking for some people, you can search by interest or what ever you want.
+    *
+    * */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -276,6 +281,9 @@ public class SearchUserFragment extends Fragment {
         }
     }
 
+    /*
+    * if noone fullfile the requirement, you are informed by toast.
+    * */
     protected void noMatch(){
         this.toast.makeText(getActivity(), "We are sorry, but there is no match!", Toast.LENGTH_LONG).show();
         TextView usernameNoMatch = (TextView) this.view.findViewById(R.id.search_profile_username);
@@ -286,7 +294,9 @@ public class SearchUserFragment extends Fragment {
         usernameNoMatch.setText("No match");
         educationNoMatch.setText("-");
     }
-
+    /*
+    * if you don't looking for in any particular way, just get a random user ;)
+    * */
     private DatabaseSchema getRandomUser(){
         this.randomUser = new DatabaseSchema();
         int randomNumber = new Random().nextInt(this.userMatch.size());

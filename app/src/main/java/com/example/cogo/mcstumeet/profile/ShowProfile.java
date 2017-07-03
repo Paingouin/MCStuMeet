@@ -14,6 +14,7 @@ import com.example.cogo.mcstumeet.database.GetUserAsyncTask;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
+// you can see the others user profile.
 public class ShowProfile extends AppCompatActivity {
     private ArrayList<DatabaseSchema> returnValues = new ArrayList<DatabaseSchema>();
     private ArrayList<String> listItems = new ArrayList<String>();

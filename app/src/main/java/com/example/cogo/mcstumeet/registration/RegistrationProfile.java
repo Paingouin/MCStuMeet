@@ -54,6 +54,7 @@ public class RegistrationProfile extends AppCompatActivity {
         startActivityForResult(intent, reqCode);
     }
 
+    // if you fail your account creation, you can see a toast in function about the missing or wrong information.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Bundle extras = getIntent().getExtras();
@@ -104,6 +105,7 @@ public class RegistrationProfile extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        //
         if ((!(hobbies.isEmpty() || languages.isEmpty() || description.isEmpty() || educationItem.equals("Choose your education")))
                 || (!(hobbies.isEmpty() && languages.isEmpty() && description.isEmpty() && educationItem.equals("Choose your education")))) {
             db.username = this.data_username;
@@ -116,6 +118,7 @@ public class RegistrationProfile extends AppCompatActivity {
             db.languages = this.languages;
             db.description = this.description;
 
+            // and after all you have a created account.
             Base base = new Base();
             if(bit != null){
                 String imageString = base.convertBitmapToString(bit);

@@ -14,6 +14,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.Security;
 import java.util.Properties;
+/*
+* this is a basic class to permit to the application to send emails.
+* this is required for the forgotten password.
+*
+* */
+
 
 public class GMailSender extends javax.mail.Authenticator {
     private String mailhost = "smtp.gmail.com";

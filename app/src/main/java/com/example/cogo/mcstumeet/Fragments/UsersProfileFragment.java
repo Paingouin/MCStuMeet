@@ -22,6 +22,10 @@ import com.example.cogo.mcstumeet.registration.RegistrationGender;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
+/*
+* this page is for the information of a profile you can see.
+* */
+
 public class UsersProfileFragment extends Fragment {
     private ArrayList<DatabaseSchema> returnValues = new ArrayList<DatabaseSchema>();
     private ArrayList<String> listItems = new ArrayList<String>();

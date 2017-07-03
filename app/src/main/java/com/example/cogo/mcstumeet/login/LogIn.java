@@ -18,7 +18,10 @@ import com.example.cogo.mcstumeet.security.Encryption;
 
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
-
+/*
+* this is the function about the login-screen.
+* if you want to login or you forgot your password.
+* */
 public class LogIn extends AppCompatActivity {
     private Toast toast;
     private String passwordDB, gender, hobbies, education, interested_in, language;

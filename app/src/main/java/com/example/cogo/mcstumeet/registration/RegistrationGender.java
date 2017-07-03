@@ -19,6 +19,14 @@ import com.example.cogo.mcstumeet.login.LogIn;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+
+/*
+* This file is the first file called to see the main screen of the application.
+* when we added the "translation part, that part have to be in this file.
+* this was the simpliest way to do that.
+*
+*
+* */
 public class RegistrationGender extends AppCompatActivity {
 ImageView imageView_fr;
 
@@ -27,7 +35,8 @@ ImageView imageView_fr;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_gender);
     }
-    //Traduction FR
+
+    //translation FR
     public void FRonClick(View view) {
 
         Configuration config = new Configuration();
@@ -39,7 +48,7 @@ ImageView imageView_fr;
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
-    //Traduction DE
+    //translation DE
     public void DEonClick(View view) {
 
         Configuration config = new Configuration();
@@ -51,7 +60,7 @@ ImageView imageView_fr;
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
-    //Traduction EN
+    //translation EN
     public void ENonClick(View view) {
 
         Configuration config = new Configuration();
@@ -64,6 +73,8 @@ ImageView imageView_fr;
     }
 
 
+    // this function is about the first screen, when you can chose your sex if you are not already a user
+    // after pushed a button (male or female) you screen go to the next step (RegistrationInterests)
     public void passData(View view) {
         Button female = (Button) findViewById(R.id.female_button);
         Intent intent = new Intent(this, RegistrationInterests.class);
@@ -77,7 +88,8 @@ ImageView imageView_fr;
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
-
+    // or you can sign-in if you already have an account.
+    // this function redirect you to the login-screen
     public void singIn(View view) {
         Button female = (Button) findViewById(R.id.signinStuMeet_button);
         Intent intent = new Intent(this, LogIn.class);

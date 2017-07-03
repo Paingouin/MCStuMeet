@@ -55,6 +55,7 @@ public class ForgetPassword extends AppCompatActivity {
         setContentView(R.layout.activity_forget_pwd);
     }
 
+    /*this function is to verify if the informations if right or not before sending a new password to the user.*/
     public void sendMail(View view) throws Exception {
 
 
