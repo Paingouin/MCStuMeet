@@ -18,8 +18,9 @@ public class DatabaseSchema {
     public String getDoc_id() {
         return _id;
     }
+
     public void setDoc_id(String doc_id) {
-        this._id = _id;
+        this._id = doc_id;
     }
 
     public void setUsername(String username) {
