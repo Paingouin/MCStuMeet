@@ -32,7 +32,8 @@
         android:layout_marginRight="7dp"
         android:layout_marginLeft="7dp"
         android:padding="10dp"
-        android:onClick="showProfile">
+        android:onClick="showProfile"
+        android:id="@+id/relativeLayout">
         <LinearLayout
             android:id="@+id/text_layout"
             android:layout_width="wrap_content"
@@ -52,28 +53,27 @@
             android:layout_marginTop="5dp"
             android:layout_centerHorizontal="true"
             android:orientation="horizontal"
-            android:id="@+id/layout_category">
+            android:id="@+id/layout_category"
+            android:weightSum="1">
 
             <Button
                 android:id="@+id/gender_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="gender"/>
+                android:text="gender"
+                android:layout_weight="1.66" />
             <Button
                 android:id="@+id/hobbies_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="hobby"/>
+
             <Button
                 android:id="@+id/education_button"
-                android:layout_width="wrap_content"
+                android:layout_width="145dp"
                 android:layout_height="wrap_content"
-                android:text="education"/>
-            <Button
-                android:id="@+id/language_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="language"/>
+                android:text="education" />
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -81,21 +81,33 @@
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="5dp"
-            android:layout_below="@id/layout_category">
-            <TextView
-                style="@style/textStyleBold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:text="You are searching for:"/>
-            <TextView
-                style="@style/textStyleCommon"
-                android:id="@+id/search_category"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="gender"/>
+            android:layout_below="@id/layout_category"
+            android:id="@+id/linearLayout">
+
         </LinearLayout>
-        </RelativeLayout>
+
+        <Button
+            android:id="@+id/language_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="language"
+            android:layout_below="@+id/layout_category"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:id="@+id/nofilter_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_toEndOf="@+id/language_button"
+            android:layout_toRightOf="@+id/language_button"
+            android:text="NO FILTER" />
+
+    </RelativeLayout>
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -205,5 +217,28 @@
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/textStyleBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You are searching for:"
+            android:layout_below="@+id/relativeLayout"
+            android:layout_alignLeft="@+id/relativeLayout"
+            android:layout_alignStart="@+id/relativeLayout" />
+
+        <TextView
+            android:id="@+id/search_category"
+            style="@style/textStyleCommon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeLayout"
+            android:layout_marginLeft="22dp"
+            android:layout_marginStart="22dp"
+            android:layout_toEndOf="@+id/textView3"
+            android:layout_toRightOf="@+id/textView3"
+            android:text="gender" />
+
     </RelativeLayout>
 </ScrollView>

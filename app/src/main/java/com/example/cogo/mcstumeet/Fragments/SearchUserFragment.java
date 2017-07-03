@@ -53,6 +53,7 @@ public class SearchUserFragment extends Fragment {
         Button education = (Button) view.findViewById(R.id.education_button);
         Button showProfile = (Button) view.findViewById(R.id.show_button);
         Button dateUser = (Button) view.findViewById(R.id.button_date);
+        Button nofilter = (Button) view.findViewById(R.id.nofilter_button);
 
         try {
             this.returnValues = this.task.execute().get();
@@ -195,6 +196,33 @@ public class SearchUserFragment extends Fragment {
                 }
             }
         });
+
+
+
+        nofilter.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                userMatch.clear();
+
+                for(DatabaseSchema db: returnValues){
+
+                        if(!(db.getUsername().equals(usernameBundle))) {
+                            userMatch.add(db);
+                        }
+                }
+                if(!(userMatch.isEmpty())){
+                    searchMatch();
+                    searchCategory("No filter");
+                } else {
+                    noMatch();
+                    searchCategory("No filter");
+                }
+            }
+        });
+
+
+
         showProfile.setOnClickListener(new View.OnClickListener()
         {
             @Override
