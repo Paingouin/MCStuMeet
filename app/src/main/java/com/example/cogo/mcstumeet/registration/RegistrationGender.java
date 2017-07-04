@@ -35,7 +35,8 @@ ImageView imageView_fr;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_gender);
     }
-
+    //For each translations we had to get all the stings which are in the matching folders in "value" part
+    //so we have to get all the resources to find the strings which matching with the language selected
     //translation FR
     public void FRonClick(View view) {
 

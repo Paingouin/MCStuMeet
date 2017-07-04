@@ -51,7 +51,7 @@
     <string name ="s_gender">Geschlecht</string>
     <string name ="s_hobby">Hobby</string>
     <string name ="s_education">Bildung</string>
-    <string name ="s_language">Sprache</string>
+    <string name ="s_language">Sprachen</string>
     <string name ="No_filter">KEIN FILTER</string>
     <string name ="s_search">Du suchst nach:</string>
     <string name ="like">Magst du diese Person?</string>
