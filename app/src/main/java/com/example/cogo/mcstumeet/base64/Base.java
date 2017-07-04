@@ -7,10 +7,11 @@ import android.util.Base64;
 import java.io.ByteArrayOutputStream;
 
 public class Base {
-    //test
+
+    //Encrypt/ Decrypt Image to base64
+
     public Bitmap convertStringToBitmap(String dbImage){
 
-        //NOTE(jordan)  :test
         byte[] encodeByte= Base64.decode(dbImage,Base64.DEFAULT);
         Bitmap bitmap= BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
         return bitmap;

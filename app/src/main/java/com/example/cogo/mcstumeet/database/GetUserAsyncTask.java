@@ -51,7 +51,9 @@ public class GetUserAsyncTask extends AsyncTask<DatabaseSchema, Void, ArrayList<
             BasicDBList userList = (BasicDBList) dbObj.get("list");
             dbObj =null;
 
-            System.gc(); // Call of  garbadge collector
+            System.gc(); // Call of garbadge collector
+
+
             for(int i=0; i<userList.size(); i++){
                 DBObject userObj = (DBObject) userList.get(i);
                 DatabaseSchema temp = new DatabaseSchema();
