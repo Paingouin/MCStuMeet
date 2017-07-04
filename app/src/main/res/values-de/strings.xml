@@ -1,10 +1,9 @@
 <resources>
     <string name="app_name">MCStuMeet</string>
-
+    // Home Page
     <string name="gender_female">Frau?</string>
     <string name="gender_male">Mann?</string>
     <string name="gender_text">Hey! Bist du...</string>
-
     <string name="interests_text">Bist du hier für Mädchen...</string>
     <string name="interests_girl">Mädchen?</string>
     <string name="interests_guy">Jungs?</string>
@@ -12,6 +11,7 @@
     <string name="loginStuMeet">Einloggen in StuMeet</string>
     <string name="loginFB">Einloggen mit Facebook</string>
 
+    //Account creation
     <string name="signin_text">anmelden</string>
     <string name="username">Benutzername</string>
     <string name="email">Universitäts-E-Mail</string>
@@ -20,17 +20,16 @@
     <string name="birthday">Geburtstag</string>
     <string name="create_account">Benutzerkonto anlegen</string>
     <string name="next">nächste</string>
-
     <string name="education_reg_profile">Bildung</string>
-
     <string name="login_text">Einloggen</string>
     <string name="login">Einloggen</string>
+
     //password forgotten
     <string name="forgot_pwd">Passwort vergessen?</string>
     <string name="enter_email">Geben sie ihre E-Mail Adresse</string>
     <string name="send_new_pwd">Neues Passwort senden</string>
 
-
+    //Profil
     <string name ="short_description">Kurzbeschreibung:</string>
     <string name ="interested_in">Interessiert an:</string>
     <string name ="education">Bildung:</string>
@@ -46,6 +45,19 @@
     <string name ="low_username">Ihr Benutzername muss mehr als 1 Zeichen enthalten!</string>
     <string name ="field_error">Bitte fülle alle Felder aus!</string>
 
+    // Search user
+    <string name ="match">Suche nach einem Treffen</string>
+    <string name ="filter">Sie können nach dieser Kategorie filtern:</string>
+    <string name ="s_gender">Geschlecht</string>
+    <string name ="s_hobby">Hobby</string>
+    <string name ="s_education">Bildung</string>
+    <string name ="s_language">Sprache</string>
+    <string name ="No_filter">KEIN FILTER</string>
+    <string name ="s_search">Du suchst nach:</string>
+    <string name ="like">Magst du diese Person?</string>
+    <string name ="s_username">Benutzername</string>
+    <string name ="show_profil">Zeige Profil</string>
+    <string name ="date_request">Freundschaftsanfrage senden</string>
 
     <string-array name="education_array">
         <item>Wählen ihre Ausbildung</item>

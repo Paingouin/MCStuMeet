@@ -84,11 +84,11 @@
                 android:onClick="singIn"/>
         </LinearLayout>
 
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_weight="0.03">
-
             <ImageView
                 android:id="@+id/imageView_fr"
                 android:layout_width="50dp"
@@ -100,7 +100,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
-
             <ImageView
                 android:id="@+id/imageView_de"
                 android:layout_width="55dp"
@@ -110,7 +109,6 @@
                 android:clickable="true"
                 android:onClick="DEonClick"
                 app:srcCompat="@drawable/flag_de" />
-
             <ImageView
                 android:id="@+id/imageView_en"
                 android:layout_width="60dp"

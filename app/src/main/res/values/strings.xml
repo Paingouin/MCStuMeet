@@ -1,10 +1,9 @@
 <resources>
     <string name="app_name">MCStuMeet</string>
-
+    // Home Page
     <string name="gender_female">Female?</string>
     <string name="gender_male">Male?</string>
     <string name="gender_text">Hey! Are you...</string>
-
     <string name="interests_text">Are you here to date...</string>
     <string name="interests_girl">Girls?</string>
     <string name="interests_guy">Guys?</string>
@@ -12,6 +11,7 @@
     <string name="loginStuMeet">Log in to StuMeet</string>
     <string name="loginFB">Log in with Facebook</string>
 
+    //Account creation
     <string name="signin_text">Sign in</string>
     <string name="username">Username</string>
     <string name="email">University email</string>
@@ -20,17 +20,16 @@
     <string name="birthday">Birthday</string>
     <string name="create_account">Create account</string>
     <string name="next">Next</string>
-
     <string name="education_reg_profile">Education</string>
-
     <string name="login_text">Log in</string>
     <string name="login">Log in</string>
+
     //password forgotten
     <string name="forgot_pwd">Forgot password?</string>
     <string name="enter_email">Enter your email</string>
     <string name="send_new_pwd">Send new password</string>
 
-
+    //Profil
     <string name ="short_description">Short description:</string>
     <string name ="interested_in">Interested in:</string>
     <string name ="education">Education:</string>
@@ -46,6 +45,19 @@
     <string name ="low_username">Your username must contain more than 1 characters!</string>
     <string name ="field_error">Please fill out all fields!</string>
 
+// Search user
+    <string name ="match">Search for a match</string>
+    <string name ="filter">You can filter by this category:</string>
+    <string name ="s_gender">Gender</string>
+    <string name ="s_hobby">Hobby</string>
+    <string name ="s_education">Education</string>
+    <string name ="s_language">Language</string>
+    <string name ="No_filter">NO FILTER</string>
+    <string name ="s_search">You are looking for:</string>
+    <string name ="like">Do you like this person?</string>
+    <string name ="s_username">Username</string>
+    <string name ="show_profil">Show Profile</string>
+    <string name ="date_request">Send date request</string>
 
     <string-array name="education_array">
         <item>Choose your education</item>
